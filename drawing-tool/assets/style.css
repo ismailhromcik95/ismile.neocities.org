@@ -8,7 +8,7 @@ body {
   padding: 10px;
   background: #f6fcff;
   justify-content: center;
-  width: calc(100vw - 50px);
+  width: calc(100vw - 35px);
   height: calc(100vh - 60px);
 }
 
