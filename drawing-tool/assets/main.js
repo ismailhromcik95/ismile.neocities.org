@@ -62,6 +62,10 @@ function showPopupWithMarkdown(url) {
   popup.appendChild(textArea);
   popup.appendChild(closeButton);
   document.body.appendChild(popup);
+
+  // Select the text automatically
+  textArea.select();
+  textArea.setSelectionRange(0, textArea.value.length);
 }
 
 // Function to get scaled coordinates
