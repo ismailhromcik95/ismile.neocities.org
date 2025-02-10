@@ -26,11 +26,11 @@ window.addEventListener('resize', resizeCanvas);
 function showPopupWithMarkdown(url) {
   const popup = document.createElement('div');
   popup.style.position = 'fixed';
-  popup.style.top = '50%';
-  popup.style.left = '50%';
-  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.top = '30%';
+  popup.style.left = '30%';
+  popup.style.width = '40%';
   popup.style.background = '#fff';
-  popup.style.padding = '20px';
+  popup.style.padding = '25px';
   popup.style.border = '1px solid #ccc';
   popup.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
   popup.style.zIndex = '1000';
@@ -42,7 +42,7 @@ function showPopupWithMarkdown(url) {
 
   const textArea = document.createElement('textarea');
   textArea.value = `![](${url})`;
-  textArea.style.width = '100%';
+  textArea.style.width = 'calc(100% - 6px)';
   textArea.style.height = '50px';
   textArea.readOnly = true;
 
