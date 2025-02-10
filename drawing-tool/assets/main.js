@@ -47,7 +47,7 @@ function showPopupWithMarkdown(url) {
 
   const textArea = document.createElement('textarea');
   textArea.value = `![](${url})`;
-  textArea.style.width = '55%';
+  textArea.style.width = '60%';
   textArea.style.height = '18px';
   textArea.readOnly = true;
 
