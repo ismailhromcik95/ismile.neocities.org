@@ -35,6 +35,7 @@ function showPopupWithMarkdown(url) {
   popup.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
   popup.style.zIndex = '1000';
   popup.style.textAlign = 'center';
+  popup.style.fontSize= '14px';
 
   const message = document.createElement('p');
   message.textContent = "Drawing submitted! Copy this into your clipboard and paste it into the chat:";
