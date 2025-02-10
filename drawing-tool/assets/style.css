@@ -12,8 +12,8 @@ body {
   padding: 10px;
   background: #f6fcff;
   justify-content: center;
-  width: calc(100vw - 35px);
-  height: calc(100vh - 60px);
+  width: calc(100vw - 20px);
+  height: calc(100vh - 51px);
 }
 
 .canvas-cont div {
