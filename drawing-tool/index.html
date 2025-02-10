@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="draw-cont">
+      <div class="canvas-cont">
+        <div>
+          <canvas id="grid-canvas" width="820" height="100"></canvas>
+          <canvas id="drawing-canvas" width="820" height="100"></canvas>
+        </div>
+        <button id="submit-draw">Submit</button>
+      </div>
+      <div class="draw-controls">
+        <button class="button" id="draw-btn" title="Draw"><img src="assets/img/write-icon.png" draggable="false"></button>
+        <button class="button" id="erase-btn" title="Erase"><img src="assets/img/erase-icon.png" draggable="false"></button>
+        <button class="button" id="undo-btn" title="Undo ink change"><img src="assets/img/undo-icon.png" draggable="false"></button>
+        <button class="button" id="redo-btn" title="Redo ink change"><img src="assets/img/redo-icon.png" draggable="false"></button>
+        <button class="button" id="color-btn" title="Select an ink color"><img src="assets/img/color-icon.png" draggable="false"> ▾</button>
+        <input type="color" id="color-picker" value="#000000">
+        <button class="button" id="grid-btn" title="Select stationery for your writing panel"><img src="assets/img/grid-icon.png" draggable="false"></button>
+        <input type="range" id="resize-slider" min="1" max="9" value="5" title="Select a point size for your handwriting">
+        <button class="button" id="clear-btn" title="Clear the canvas"><img src="assets/img/clear-icon.png" draggable="false" height="15px" width="15px"></button>
+      </div>
+    </div>
+    <script src="assets/main.js" type="text/javascript"></script>
+  </body>
+</html>
