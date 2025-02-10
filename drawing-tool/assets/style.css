@@ -8,8 +8,8 @@ body {
   padding: 10px;
   background: #f6fcff;
   justify-content: center;
-  width: calc(100vh - 20px);
-  height: calc(100vh - 10px);
+  width: calc(100vh - 60px);
+  height: calc(100vh - 30px);
 }
 
 .canvas-cont div {
