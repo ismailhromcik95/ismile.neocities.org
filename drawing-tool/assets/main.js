@@ -10,6 +10,18 @@ let redoStack = [];
 let currentTool = 'draw'; // Current tool: 'draw' or 'erase'
 let isGridVisible = false; // Track grid visibility
 
+// Function to resize the canvas dynamically
+function resizeCanvas() {
+  const parent = drawingCanvas.parentElement;
+  gridCanvas.width = drawingCanvas.width = parent.clientWidth;
+  gridCanvas.height = drawingCanvas.height = parent.clientHeight;
+  drawGrid(); // Redraw the grid if needed
+}
+
+// Resize on window load and resize event
+window.addEventListener('load', resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
+
 // Function to get scaled coordinates
 function getScaledCoordinates(e) {
   const rect = drawingCanvas.getBoundingClientRect();
