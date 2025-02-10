@@ -84,8 +84,7 @@ body {
 #redo-btn,
 #grid-btn,
 #color-btn,
-#clear-btn,
-#close-btn {
+#clear-btn {
   background: transparent;
   height: 28px;
   image-rendering: pixelated;
@@ -94,8 +93,7 @@ body {
 #draw-btn,
 #grid-btn,
 #color-btn,
-#clear-btn,
-#close-btn {
+#clear-btn {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -114,11 +112,6 @@ body {
 
 #clear-btn {
   opacity: 0.8;
-}
-
-#close-btn {
-  margin-right: 2px;
-  margin-left: 0;
 }
 
 #color-btn {
@@ -144,8 +137,7 @@ body {
 #redo-btn:hover,
 #grid-btn:hover,
 #color-btn:hover,
-#clear-btn:hover,
-#close-btn:hover {
+#clear-btn:hover {
   background: linear-gradient(0deg, #d4e3ea 50%, #e9f3f7 50%);
 }
 
