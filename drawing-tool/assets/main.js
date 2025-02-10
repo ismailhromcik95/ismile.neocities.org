@@ -13,16 +13,23 @@ let isGridVisible = false; // Track grid visibility
 // Function to resize the canvas dynamically
 function resizeCanvas() {
   const parent = drawingCanvas.parentElement;
+  const toolbar = document.querySelector('.draw-controls'); // The toolbar at the bottom
+  const button = document.getElementById('submit-draw'); // The button on the side
 
-  // Get parent height correctly
-  const width = parent.clientWidth;
-  const height = parent.clientHeight;
+  const parentWidth = parent.clientWidth;
+  const parentHeight = parent.clientHeight;
 
-  // Ensure canvas takes full parent height
-  gridCanvas.width = drawingCanvas.width = width;
-  gridCanvas.height = drawingCanvas.height = height;
+  // Get the total height of the toolbar and button
+  const toolbarHeight = toolbar ? toolbar.offsetHeight : 0;
+  const buttonHeight = button ? button.offsetHeight : 0;
 
-  drawGrid(); // Redraw grid after resize
+  // Set the canvas size, ensuring it doesn't overlap with the toolbar and button
+  const availableHeight = parentHeight - (toolbarHeight + buttonHeight);
+
+  gridCanvas.width = drawingCanvas.width = parentWidth;
+  gridCanvas.height = drawingCanvas.height = availableHeight;
+
+  drawGrid(); // Redraw the grid to match the new size
 }
 
 // Resize on window load and resize event
