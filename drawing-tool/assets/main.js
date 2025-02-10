@@ -13,28 +13,48 @@ let isGridVisible = false; // Track grid visibility
 // Function to resize the canvas dynamically
 function resizeCanvas() {
   const parent = drawingCanvas.parentElement;
-  const toolbar = document.querySelector('.draw-controls'); // The toolbar at the bottom
-  const button = document.getElementById('submit-draw'); // The button on the side
-
-  const parentWidth = parent.clientWidth;
-  const parentHeight = parent.clientHeight;
-
-  // Get the total height of the toolbar and button
-  const toolbarHeight = toolbar ? toolbar.offsetHeight : 0;
-  const buttonHeight = button ? button.offsetHeight : 0;
-
-  // Set the canvas size, ensuring it doesn't overlap with the toolbar and button
-  const availableHeight = parentHeight - (toolbarHeight + buttonHeight);
-
-  gridCanvas.width = drawingCanvas.width = parentWidth;
-  gridCanvas.height = drawingCanvas.height = availableHeight;
-
-  drawGrid(); // Redraw the grid to match the new size
+  gridCanvas.width = drawingCanvas.width = parent.clientWidth;
+  gridCanvas.height = drawingCanvas.height = parent.clientHeight;
+  drawGrid(); // Redraw the grid if needed
 }
 
 // Resize on window load and resize event
 window.addEventListener('load', resizeCanvas);
 window.addEventListener('resize', resizeCanvas);
+
+// Function to show a popup with markdown link
+function showPopupWithMarkdown(url) {
+  const popup = document.createElement('div');
+  popup.style.position = 'fixed';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%)';
+  popup.style.background = '#fff';
+  popup.style.padding = '20px';
+  popup.style.border = '1px solid #ccc';
+  popup.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+  popup.style.zIndex = '1000';
+  popup.style.textAlign = 'center';
+
+  const message = document.createElement('p');
+  message.textContent = "Drawing submitted! Copy this into your clipboard and paste it into the chat:";
+
+  const textArea = document.createElement('textarea');
+  textArea.value = `![](${url})`;
+  textArea.style.width = '100%';
+  textArea.style.height = '50px';
+  textArea.readOnly = true;
+
+  const closeButton = document.createElement('button');
+  closeButton.textContent = 'Close';
+  closeButton.style.marginTop = '10px';
+  closeButton.addEventListener('click', () => document.body.removeChild(popup));
+
+  popup.appendChild(message);
+  popup.appendChild(textArea);
+  popup.appendChild(closeButton);
+  document.body.appendChild(popup);
+}
 
 // Function to get scaled coordinates
 function getScaledCoordinates(e) {
@@ -342,20 +362,19 @@ async function uploadImage(imageData) {
       // Store the image info in localStorage
       storeImageInfo(deleteHash, uploadTimestamp, imageUrl);
 
-      // Copy markdown link to clipboard
-      copyMarkdownLink(imageUrl);
+      // Show popup with markdown link
+      showPopupWithMarkdown(imageUrl);
 
       // Schedule periodic checks for expired images
       scheduleExpiredImageChecks();
 
       return true;
     } else {
-      alert('Failed to upload image.');
+      console.error('Failed to upload image.');
       return false;
     }
   } catch (error) {
     console.error('Error uploading image:', error);
-    alert('An error occurred while uploading the image.');
     return false;
   }
 }
@@ -371,14 +390,6 @@ function storeImageInfo(deleteHash, uploadTimestamp, imageUrl) {
   let images = JSON.parse(localStorage.getItem('uploadedImages') || '[]');
   images.push(imageInfo);
   localStorage.setItem('uploadedImages', JSON.stringify(images));
-}
-
-// Copy markdown link to clipboard
-function copyMarkdownLink(url) {
-  const markdownLink = `![](${url})`;
-  navigator.clipboard.writeText(markdownLink).then(() => {
-    alert('Drawing copied to the clipboard!\nPaste it into the chat in order to share it.');
-  });
 }
 
 // Check for expired images and delete them
