@@ -11,6 +11,10 @@
   height: 100%;
 }
 
+.canvas-cont canvas {
+  cursor: none;
+}
+
 #grid-canvas {
   position: absolute;
   top: 0;
