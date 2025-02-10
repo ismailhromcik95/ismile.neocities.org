@@ -141,10 +141,6 @@ body {
   background: linear-gradient(0deg, #d4e3ea 50%, #e9f3f7 50%);
 }
 
-.draw-controls .right .separator {
-  margin-right: -3px;
-}
-
 .active-tool,
 .button:active {
   border: 1px solid rgba(0,0,0,0.7);
