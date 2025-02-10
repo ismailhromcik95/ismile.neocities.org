@@ -26,29 +26,36 @@ window.addEventListener('resize', resizeCanvas);
 function showPopupWithMarkdown(url) {
   const popup = document.createElement('div');
   popup.style.position = 'fixed';
-  popup.style.top = '30%';
-  popup.style.left = '30%';
-  popup.style.width = '40%';
+  popup.style.top = '5.5px';
+  popup.style.left = '25%';
+  popup.style.width = '50%';
   popup.style.background = '#fff';
   popup.style.padding = '25px';
   popup.style.border = '1px solid #ccc';
   popup.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
   popup.style.zIndex = '1000';
   popup.style.textAlign = 'center';
-  popup.style.fontSize= '14px';
+  popup.style.fontSize = '14px';
+  popup.style.display = 'flex';
+  popup.style.flexDirection = 'column';
+  popup.style.alignItems = 'center';
+  popup.style.justifyContent = 'center';
 
   const message = document.createElement('p');
   message.textContent = "Drawing submitted! Copy this into your clipboard and paste it into the chat:";
+  message.style.marginTop = '0';
 
   const textArea = document.createElement('textarea');
   textArea.value = `![](${url})`;
-  textArea.style.width = 'calc(100% - 6px)';
-  textArea.style.height = '50px';
+  textArea.style.width = '55%';
+  textArea.style.height = '18px';
   textArea.readOnly = true;
 
   const closeButton = document.createElement('button');
   closeButton.textContent = 'Close';
   closeButton.style.marginTop = '10px';
+  closeButton.style.display = 'block';
+  closeButton.style.width = 'fit-content';
   closeButton.addEventListener('click', () => document.body.removeChild(popup));
 
   popup.appendChild(message);
