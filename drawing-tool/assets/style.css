@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
+div {
+  overflow: hidden;
+}
+
 .canvas-cont {
   display: flex;
   padding: 10px;
