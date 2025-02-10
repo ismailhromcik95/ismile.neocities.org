@@ -13,9 +13,16 @@ let isGridVisible = false; // Track grid visibility
 // Function to resize the canvas dynamically
 function resizeCanvas() {
   const parent = drawingCanvas.parentElement;
-  gridCanvas.width = drawingCanvas.width = parent.clientWidth;
-  gridCanvas.height = drawingCanvas.height = parent.clientHeight;
-  drawGrid(); // Redraw the grid if needed
+
+  // Get parent height correctly
+  const width = parent.clientWidth;
+  const height = parent.clientHeight;
+
+  // Ensure canvas takes full parent height
+  gridCanvas.width = drawingCanvas.width = width;
+  gridCanvas.height = drawingCanvas.height = height;
+
+  drawGrid(); // Redraw grid after resize
 }
 
 // Resize on window load and resize event
