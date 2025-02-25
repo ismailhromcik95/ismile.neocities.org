@@ -11,6 +11,15 @@ body {
 
 .canvas-cont div {
 	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-top-color: #808080;
+	border-left-color: #808080;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+  box-shadow:
+    inset 1px 1px 0 #000,
+    inset -1px -1px 0 #dfdfdf;
 }
 
 .draw-controls {
