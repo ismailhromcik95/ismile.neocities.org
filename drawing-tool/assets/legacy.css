@@ -1,0 +1,120 @@
+body {
+	font-smooth: never !important;
+	-webkit-font-smoothing: none  !important;
+  -moz-osx-font-smoothing: grayscale  !important;
+}
+
+.canvas-cont {
+	background: #fff;
+}
+
+.draw-controls {
+	padding: 2px;
+}
+
+.draw-controls,
+.button,
+#draw-btn,
+#erase-btn,
+#undo-btn,
+#redo-btn,
+#grid-btn,
+#color-btn,
+#clear-btn,
+#draw-btn:hover,
+#erase-btn:hover,
+#undo-btn:hover,
+#redo-btn:hover,
+#grid-btn:hover,
+#color-btn:hover,
+#clear-btn:hover,
+#close-btn:hover {
+	background: #c0c0c0;
+	border-radius: 0;
+}
+
+#draw-btn,
+#erase-btn,
+#undo-btn,
+#redo-btn,
+#grid-btn,
+#color-btn,
+#clear-btn {
+	padding: 3px;
+}
+
+#clear-btn {
+	opacity: 1;
+}
+
+.button {
+	margin-bottom: 4px;
+}
+
+.button:hover {
+	background: #c0c0c0;
+	border-width: 1px;
+	border-style: solid;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #808080;
+	border-bottom-color: #808080;
+}
+
+.button:active,
+.active-tool {
+	border-top-color: #808080;
+	border-left-color: #808080;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+	box-shadow: none;
+}
+
+#submit-draw {
+	background: #c0c0c0;
+	border-width: 1px;
+	border-style: solid;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-right-color: #808080;
+	border-bottom-color: #808080;
+}
+
+#submit-draw:active {
+	border-top-color: #808080;
+	border-left-color: #808080;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+}
+
+#resize-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 130px;
+  height: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  box-shadow:
+    inset -1px -1px 0 #dfdfdf,
+    inset 1px 1px 0 #000;
+  outline: none;
+  cursor: pointer;
+}
+
+#resize-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 21px;
+  background-image: url('img/legacy/slider.png');
+}
+
+#resize-slider::-moz-range-thumb {
+  width: 11px;
+  height: 21px;
+  background-image: url('img/legacy/slider.png');
+}
