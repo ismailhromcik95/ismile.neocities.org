@@ -2,9 +2,14 @@ body {
 	font-smooth: never !important;
 	-webkit-font-smoothing: none  !important;
   -moz-osx-font-smoothing: grayscale  !important;
+  background: #c0c0c0;
 }
 
 .canvas-cont {
+	background: transparent;
+}
+
+.canvas-cont div {
 	background: #fff;
 }
 
