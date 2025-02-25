@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="assets/legacy.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="draw-cont">
+      <div class="canvas-cont">
+        <div>
+          <canvas id="grid-canvas"></canvas>
+          <canvas id="drawing-canvas"></canvas>
+        </div>
+        <button id="submit-draw">Submit</button>
+      </div>
+      <div class="draw-controls">
+        <button class="button" id="draw-btn" title="Draw"><img src="assets/img/legacy/draw-icon.png" draggable="false"></button>
+        <button class="button" id="erase-btn" title="Erase"><img src="assets/img/legacy/erase-icon.png" draggable="false"></button>
+        <button class="button" id="undo-btn" title="Undo ink change"><img src="assets/img/legacy/undo-icon.png" draggable="false"></button>
+        <button class="button" id="redo-btn" title="Redo ink change"><img src="assets/img/legacy/redo-icon.png" draggable="false"></button>
+        <button class="button" id="color-btn" title="Select an ink color"><img src="assets/img/legacy/color-icon.png" draggable="false"> ▾</button>
+        <input type="color" id="color-picker" value="#000000">
+        <button class="button" id="grid-btn" title="Select stationery for your writing panel"><img src="assets/img/legacy/grid-icon.png" draggable="false"></button>
+        <input type="range" id="resize-slider" min="1" max="9" value="5" title="Select a point size for your brush">
+        <button class="button" id="clear-btn" title="Clear the canvas"><img src="assets/img/legacy/clear-icon.png" draggable="false"></button>
+      </div>
+    </div>
+    <script src="assets/main.js" type="text/javascript"></script>
+  </body>
+</html>
