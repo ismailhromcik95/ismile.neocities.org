@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather</title>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <div class="window-content">
+      <div class="weather-header"><span class="aol">AOL</span>Weather</div>
+      <h1><span class="title">Weather</span> <span class="city"></span></h1>
+      <p>Weather reports are updated throughout the day. Time of last update is reported in <span class="timezone"></span>.</p>
+      <div class="forecast-cont">
+        <div class="current">
+          <h2>Current Conditions</h2>
+          <div class="cond-cont"><div class="condition">Temperature:</div><div class="value temp"></div></div>
+          <div class="cond-cont"><div class="condition">Conditions:</div><div class="value cond"></div></div>
+          <div class="cond-cont"><div class="condition">Winds:</div><div class="value wind"></div></div>
+          <div class="cond-cont"><div class="condition">Relative Humidity:</div><div class="value humid"></div></div>
+          <div class="cond-cont"><div class="condition">Barometer:</div><div class="value barom"></div></div>
+        </div>
+        <div class="seven-day">
+          <h2>Seven-day Forecast</h2>
+          <div class="forecast">
+            <div class="row1">
+              <div class="day1"></div>
+              <div class="day2"></div>
+              <div class="day3"></div>
+              <div class="day4"></div>
+            </div>
+            <div class="row2">
+              <div class="day5"></div>
+              <div class="day6"></div>
+              <div class="day7"></div>
+              <div class="empty"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ads-cont">
+        <a href="../history/90s.html" class="ad2-cont"><div class="ad2"></div></a>
+        <a href="https://open-meteo.com/" target="_blank"><div class="ad3"></div></a>
+      </div>
+    </div>
+    <script src="assets/js/weather.js" type="text/javascript"></script>
+  </body>
+</html>
