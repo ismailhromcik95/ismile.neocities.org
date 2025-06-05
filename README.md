@@ -9,13 +9,13 @@ https://ismailhromcik95.github.io/ismile.neocities.org/drawing-tool/
 https://ismailhromcik95.github.io/ismile.neocities.org/drawing-tool/legacy.html
 
 3. Local Channel:
-file:///D:/Users/Ismail/My%20Projects/weather/local.html
+https://ismailhromcik95.github.io/ismile.neocities.org/weather/local.html
 
 4. Weather Widget (Full):
 https://ismailhromcik95.github.io/ismile.neocities.org/weather/
 
 5. Weather Widget (Mini):
-file:///D:/Users/Ismail/My%20Projects/weather/simple-weather.html
+https://ismailhromcik95.github.io/ismile.neocities.org/weather/simple-weather.html
 
 6. Fact of the Day:
-file:///D:/Users/Ismail/My%20Projects/facts/index.html
+https://ismailhromcik95.github.io/ismile.neocities.org/index.html
