@@ -8,15 +8,6 @@ if (isGitHubPages) {
   }
 }
 
-document.getElementById('openFile').addEventListener('click', () => {
-  // Send a message to the parent window
-  window.parent.postMessage(
-    { type: 'FILE_OPENED' },  // Unique message identifier
-    'https://ismile.neocities.org/aol/'  // Replace with your parent page's exact origin
-  );
-});
-
-
 document.addEventListener('DOMContentLoaded', function() {
 
   // =============================================
@@ -85,19 +76,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Open button
-document.getElementById('openFile')?.addEventListener('click', () => {
-  if (!selectedFile) return;
-  
-  // Send to parent on ismile.neocities.org
-  window.parent.postMessage(
-    { 
-      type: 'FILE_OPENED',
-      file: selectedFile
-    },
-    'https://ismile.neocities.org' // Exact parent origin
-  );
-});
+  // Open button - FIXED
+  document.getElementById('openFile')?.addEventListener('click', () => {
+    if (!selectedFile) return;
+    
+    // Send to parent with the file data
+    window.parent.postMessage(
+      { 
+        type: 'FILE_OPENED',
+        file: selectedFile
+      },
+      'https://ismile.neocities.org' // Fixed: removed /aol/ from origin
+    );
+  });
 
   // Delete
   document.getElementById('deleteFile')?.addEventListener('click', () => {
@@ -270,9 +261,9 @@ function openSelectedFile() {
   
   if (parentWindow) {
     parentWindow.postMessage({
-      type: 'PREVIEW_FILE',
+      type: 'FILE_OPENED',
       file: selectedFile
-    }, '*');
+    }, 'https://ismile.neocities.org'); // Fixed origin
   } else {
     previewFile(selectedFile);
   }
@@ -298,13 +289,6 @@ function openSelectedFile() {
   function saveFiles() {
     localStorage.setItem('fileStorage', JSON.stringify(fileStorage));
   }
-
-
-window.addEventListener('message', (event) => {
-  if (event.data.type === 'PREVIEW_FILE') {
-    previewFile(event.data.file); // Directly use existing function
-  }
-});
 
   renderFiles();
 
