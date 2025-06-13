@@ -1,14 +1,17 @@
 const isGitHubPages = window.location.href.includes('github.io');
 let parentWindow = null;
 
-if (isGitHubPages) {
-  // If we're in an iframe, get reference to parent window
-  if (window.parent !== window) {
-    parentWindow = window.parent;
-  }
+// Always try to get parent window if we're in an iframe
+if (window.parent !== window) {
+  parentWindow = window.parent;
+  console.log('Parent window found:', parentWindow);
+} else {
+  console.log('No parent window found');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
+console.log('Main.js loaded in iframe');
 
   // =============================================
   // FILE CABINET FUNCTIONALITY
