@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 console.log('Preview.js loaded');
 
 // Message listener for parent
@@ -88,3 +90,5 @@ function previewFile(file) {
     `;
   }
 }
+
+});
