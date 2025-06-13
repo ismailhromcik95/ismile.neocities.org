@@ -9,13 +9,18 @@ if (isGitHubPages) {
 }
 
 document.getElementById('openFile').addEventListener('click', () => {
-  // Send a message to the parent window
-  window.parent.postMessage(
-    { type: 'FILE_OPENED' },  // Unique message identifier
-    'https://ismile.neocities.org/aol/'  // Replace with your parent page's exact origin
-  );
+  console.log('[Iframe] Button clicked! Preparing to send message to parent...'); // Debug 1
+  
+  try {
+    window.parent.postMessage(
+      { type: 'FILE_OPENED' }, 
+      'https://ismile.neocities.org/aol/'
+    );
+    console.log('[Iframe] Message sent to parent.'); // Debug 2
+  } catch (error) {
+    console.error('[Iframe] Error sending message:', error); // Debug 3
+  }
 });
-
 
 document.addEventListener('DOMContentLoaded', function() {
 
