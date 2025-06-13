@@ -86,14 +86,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Open button
-  document.getElementById('openFile')?.addEventListener('click', () => {
-    if (!selectedFile) return;
-    if (selectedFile.isFolder) {
-      navigateToFolder(selectedFile);
-    } else {
-      openSelectedFile(selectedFile);
-    }
-  });
+document.getElementById('openFile')?.addEventListener('click', () => {
+  if (!selectedFile) return;
+  
+  // Send to parent on ismile.neocities.org
+  window.parent.postMessage(
+    { 
+      type: 'FILE_OPENED',
+      file: selectedFile
+    },
+    'https://ismile.neocities.org' // Exact parent origin
+  );
+});
 
   // Delete
   document.getElementById('deleteFile')?.addEventListener('click', () => {
