@@ -1,7 +1,9 @@
 // Message listener for parent
 window.addEventListener('message', (event) => {
-  // Accept messages from parent only
+  // Accept messages from parent only - FIXED origin check
   if (event.origin !== 'https://ismile.neocities.org') return;
+  
+  console.log('Preview window received message:', event.data);
   
   if (event.data.type === 'PREVIEW_FILE') {
     previewFile(event.data.file);
@@ -9,9 +11,14 @@ window.addEventListener('message', (event) => {
 });
 
 function previewFile(file) {
+  console.log('Preview file called with:', file);
+  
   // Get preview container
   const previewContent = document.getElementById('previewContentIF');
-  if (!previewContent) return;
+  if (!previewContent) {
+    console.error('Preview content container not found');
+    return;
+  }
 
   // Clear previous content
   previewContent.innerHTML = '';
