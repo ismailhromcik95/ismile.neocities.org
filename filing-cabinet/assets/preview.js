@@ -1,3 +1,5 @@
+console.log('Preview.js loaded');
+
 // Message listener for parent
 window.addEventListener('message', (event) => {
   // Accept messages from parent only - FIXED origin check
