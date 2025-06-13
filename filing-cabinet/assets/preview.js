@@ -127,7 +127,7 @@ function maximizeCurrentFile() {
         content = `<audio controls style="margin:0;padding:0;"><source src="${dataUrl}" type="${currentFile.type}"></audio>`;
       }
       else if (currentFile.type.startsWith('video/')) {
-        content = `<video controls style="max-width:100vw;max-height:100vh;"><source src="${dataUrl}" type="${currentFile.type}"></video>`;
+        content = `<style>body {background:#000;display:flex;align-items:center;justify-content:center;}</style><video controls style="max-width:100vw;max-height:100vh;"><source src="${dataUrl}" type="${currentFile.type}"></video>`;
       }
       else if (currentFile.type === 'application/pdf') {
         content = `<embed src="${dataUrl}" type="application/pdf" width="100%" style="height:100vh">`;
@@ -144,7 +144,7 @@ function maximizeCurrentFile() {
 
       newWindow.document.write(`
         <!DOCTYPE html>
-        <html>
+        <html style="overflow:hidden;">
         <head>
           <title>${currentFile.name}</title>
           <style>
