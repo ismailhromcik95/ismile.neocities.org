@@ -78,16 +78,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Open button - FIXED
   document.getElementById('openFile')?.addEventListener('click', () => {
-    if (!selectedFile) return;
+    if (!selectedFile) {
+      console.log('No file selected');
+      return;
+    }
+    
+    console.log('Opening file:', selectedFile.name);
     
     // Send to parent with the file data
-    window.parent.postMessage(
-      { 
-        type: 'FILE_OPENED',
-        file: selectedFile
-      },
-      'https://ismile.neocities.org' // Fixed: removed /aol/ from origin
-    );
+    if (parentWindow) {
+      console.log('Sending FILE_OPENED message to parent');
+      parentWindow.postMessage(
+        { 
+          type: 'FILE_OPENED',
+          file: selectedFile
+        },
+        'https://ismile.neocities.org' // Parent origin
+      );
+    } else {
+      console.log('No parent window found');
+    }
   });
 
   // Delete
@@ -222,9 +232,13 @@ document.addEventListener('DOMContentLoaded', function() {
           selectedFile = item;
           selectedFileContainer = null;
           updateButtonStates();
+          console.log('Selected file:', selectedFile.name);
         });
 
-        fileItem.addEventListener('dblclick', () => openSelectedFile(item));
+        fileItem.addEventListener('dblclick', () => {
+          console.log('Double-clicked file:', item.name);
+          openSelectedFile(item);
+        });
 
         fileItem.addEventListener('dragstart', () => {
           draggedFile = item;
@@ -256,16 +270,22 @@ function revokeBlobUrl(url) {
   }
 }
 
-function openSelectedFile() {
-  if (!selectedFile) return;
+function openSelectedFile(file = selectedFile) {
+  if (!file) {
+    console.log('No file to open');
+    return;
+  }
+  
+  console.log('Opening selected file:', file.name);
   
   if (parentWindow) {
+    console.log('Sending FILE_OPENED message to parent');
     parentWindow.postMessage({
       type: 'FILE_OPENED',
-      file: selectedFile
-    }, 'https://ismile.neocities.org'); // Fixed origin
+      file: file
+    }, 'https://ismile.neocities.org'); // Parent origin
   } else {
-    previewFile(selectedFile);
+    console.log('No parent window available');
   }
 }
 
