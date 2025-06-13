@@ -22,8 +22,13 @@ window.addEventListener('message', (event) => {
   }
 });
 
+if (event.data.type === 'MAXIMIZE_PREVIEW') {
+  maximizeCurrentFile();
+}
+
 function previewFile(file) {
   console.log('Preview file called with:', file);
+  currentFile = file; // Store current file for maximize functionality
   
   // Get preview container
   const previewContent = document.getElementById('previewContentIF');
@@ -97,6 +102,64 @@ function previewFile(file) {
       </div>
     `;
   }
+}
+
+let currentFile = null;
+
+function maximizeCurrentFile() {
+  if (!currentFile) return;
+  
+  const dataUrl = `data:${currentFile.type};base64,${currentFile.data}`;
+  const newWindow = window.open('', '_blank');
+  
+  if (!newWindow) return;
+  
+  setTimeout(() => {
+    try {
+      let content = '';
+      if (currentFile.type.startsWith('image/')) {
+        content = `<img src="${dataUrl}" alt="${currentFile.name}" style="max-width:100vw;max-height:100vh;object-fit:contain;">`;
+      } 
+      else if (currentFile.type === 'text/plain' || currentFile.name.endsWith('.txt')) {
+        const text = atob(currentFile.data).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        content = `<pre style="margin:0;padding:0;white-space:pre-wrap;">${text}</pre>`;
+      }
+      else if (currentFile.type.startsWith('audio/')) {
+        content = `<audio controls style="margin:0;padding:0;"><source src="${dataUrl}" type="${currentFile.type}"></audio>`;
+      }
+      else if (currentFile.type.startsWith('video/')) {
+        content = `<video controls style="max-width:100vw;max-height:100vh;"><source src="${dataUrl}" type="${currentFile.type}"></video>`;
+      }
+      else if (currentFile.type === 'application/pdf') {
+        content = `<embed src="${dataUrl}" type="application/pdf" width="100%" height="100%">`;
+      }
+      else {
+        // For other files, just download them
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = currentFile.name;
+        a.click();
+        newWindow.close();
+        return;
+      }
+
+      newWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${currentFile.name}</title>
+          <style>
+            body { margin: 0; padding: 0; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+          </style>
+        </head>
+        <body>${content}</body>
+        </html>
+      `);
+      newWindow.document.close();
+    } catch (e) {
+      console.error('Error opening file:', e);
+    }
+  }, 100);
 }
 
 });
