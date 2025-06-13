@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 console.log('Preview.js loaded');
 console.log('Preview DOM loaded, container exists:', !!document.getElementById('previewContentIF'));
 
+let currentFile = null;
+
 // Message listener for parent
 window.addEventListener('message', (event) => {
   // Accept messages from parent only - FIXED origin check
@@ -20,11 +22,11 @@ window.addEventListener('message', (event) => {
       previewFile(event.data.file);
     }
   }
+  
+  if (event.data.type === 'MAXIMIZE_PREVIEW') {
+    maximizeCurrentFile();
+  }
 });
-
-if (event.data.type === 'MAXIMIZE_PREVIEW') {
-  maximizeCurrentFile();
-}
 
 function previewFile(file) {
   console.log('Preview file called with:', file);
@@ -103,8 +105,6 @@ function previewFile(file) {
     `;
   }
 }
-
-let currentFile = null;
 
 function maximizeCurrentFile() {
   if (!currentFile) return;
