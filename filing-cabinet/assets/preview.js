@@ -148,7 +148,7 @@ function maximizeCurrentFile() {
         <head>
           <title>${currentFile.name}</title>
           <style>
-            body { margin: 0; padding: 0; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+            body { margin: 0; padding: 0; background: #fff; min-height: 100vh; }
           </style>
         </head>
         <body>${content}</body>
