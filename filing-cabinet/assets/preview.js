@@ -69,9 +69,8 @@ function previewFile(file) {
     previewContent.innerHTML = `
       <object data="data:application/pdf;base64,${file.data}" 
               type="application/pdf" 
-              width="100%" 
-              height="100vh"
-              style="border:none;">
+              width="100%"
+              style="border:none;height:100vh">
         <p>PDF viewer not available. <a href="data:application/pdf;base64,${file.data}" download="${file.name}">Download PDF</a></p>
       </object>
     `;
@@ -131,7 +130,7 @@ function maximizeCurrentFile() {
         content = `<video controls style="max-width:100vw;max-height:100vh;"><source src="${dataUrl}" type="${currentFile.type}"></video>`;
       }
       else if (currentFile.type === 'application/pdf') {
-        content = `<embed src="${dataUrl}" type="application/pdf" width="100%" height="100vh">`;
+        content = `<embed src="${dataUrl}" type="application/pdf" width="100%" style="height:100vh">`;
       }
       else {
         // For other files, just download them
