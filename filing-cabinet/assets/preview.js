@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 console.log('Preview.js loaded');
+console.log('Preview DOM loaded, container exists:', !!document.getElementById('previewContentIF'));
 
 // Message listener for parent
 window.addEventListener('message', (event) => {
@@ -10,7 +11,14 @@ window.addEventListener('message', (event) => {
   console.log('Preview window received message:', event.data);
   
   if (event.data.type === 'PREVIEW_FILE') {
-    previewFile(event.data.file);
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        previewFile(event.data.file);
+      });
+    } else {
+      previewFile(event.data.file);
+    }
   }
 });
 
