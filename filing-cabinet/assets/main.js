@@ -8,6 +8,14 @@ if (isGitHubPages) {
   }
 }
 
+document.getElementById('openFile').addEventListener('click', () => {
+  // Send a message to the parent window
+  window.parent.postMessage(
+    { type: 'FILE_OPENED' },  // Unique message identifier
+    'https://ismile.neocities.org/aol/'  // Replace with your parent page's exact origin
+  );
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
