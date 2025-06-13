@@ -255,7 +255,7 @@ function revokeBlobUrl(url) {
 
 function previewFile(file) {
   // Get preview container
-  const previewContent = document.getElementById('previewContent');
+  const previewContent = document.getElementById('previewContentIF');
   if (!previewContent) return;
 
   // Clear previous content
