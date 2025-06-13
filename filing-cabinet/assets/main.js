@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Send to parent with the file data
     if (parentWindow) {
       console.log('Sending FILE_OPENED message to parent');
-      parentWindow.postMessage(
-        { 
-          type: 'FILE_OPENED',
-          file: selectedFile
-        },
-        'https://ismile.neocities.org' // Parent origin
+    parentWindow.postMessage(
+      { 
+        type: 'FILE_OPENED',
+        file: selectedFile
+      },
+      '*'
       );
     } else {
       console.log('No parent window found');
@@ -283,7 +283,7 @@ function openSelectedFile(file = selectedFile) {
     parentWindow.postMessage({
       type: 'FILE_OPENED',
       file: file
-    }, 'https://ismile.neocities.org'); // Parent origin
+    }, '*'); // Parent origin
   } else {
     console.log('No parent window available');
   }
