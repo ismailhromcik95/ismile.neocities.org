@@ -1,7 +1,7 @@
 // Message listener for parent
 window.addEventListener('message', (event) => {
   // Accept messages from parent only - FIXED origin check
-  if (event.origin !== 'https://ismile.neocities.org') return;
+  if (!event.origin.includes('neocities.org')) return;
   
   console.log('Preview window received message:', event.data);
   
