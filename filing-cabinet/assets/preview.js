@@ -1,12 +1,7 @@
 // Message listener for parent
 window.addEventListener('message', (event) => {
-  // Accept messages from either:
-  // 1. Parent (ismile.neocities.org)
-  // 2. Same origin (ismailhromcik95.github.io)
-  if (event.origin !== 'https://ismile.neocities.org' && 
-      event.origin !== 'https://ismailhromcik95.github.io') {
-    return;
-  }
+  // Accept messages from parent only
+  if (event.origin !== 'https://ismile.neocities.org') return;
   
   if (event.data.type === 'PREVIEW_FILE') {
     previewFile(event.data.file);
