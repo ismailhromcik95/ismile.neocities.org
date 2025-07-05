@@ -1,20 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
 body {
-	font-size: 2em;
   font-family: "Jersey 10", sans-serif;
   font-weight: 400;
   font-style: normal;
   image-rendering: pixelated !important;
+	font-size: 2em;
 }
 
 .content {
 	background: #88c9a1;
-	height: 300px;
-	width: 600px;
+	height: 100%;
+	width: 100%;
+	max-height: 300px;
+	max-width: 600px;
 	text-align: center;
 	padding: 20px;
 	position: relative;
+	overflow: hidden;
 }
 
 .content h1 {
@@ -103,4 +106,74 @@ body {
 	background-image: url(../img/mons/pokemon/gen3/torchic/idle.gif);
 	width: 64px;
 	height: 64px;
+}
+
+@media only screen and (max-width: 550px) {
+	.agumon,
+	.vmon,
+	.guilmon,
+	.pikachu,
+	.chikorita,
+	.torchic {
+		width: 9vw;
+		height: 9vw;
+	}
+
+	.vmon,
+	.chikorita {
+		bottom: 40%;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	body {
+		font-size: 5vh;
+	}
+
+	.menu-btn input:checked::before {
+		width: 2vh;
+		height: 3vh;
+		top: -3vh;
+		left: -1vh;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.vmon {
+		left: 12%;
+	}
+
+	.guilmon {
+		left: 20%;
+	}
+
+	.chikorita {
+		right: 12%;
+	}
+
+	.torchic {
+		right: 20%;
+	}
+}
+
+@media only screen and (max-width: 350px) {
+	body {
+		font-size: 3vh;
+	}
+
+	.menu-btn input:checked::before {
+		height: 2vh;
+		top: -2vh;
+	}
+}
+
+@media only screen and (max-width: 250px) {
+	.agumon,
+	.vmon,
+	.guilmon,
+	.pikachu,
+	.chikorita,
+	.torchic {
+		display: none;
+	}
 }
