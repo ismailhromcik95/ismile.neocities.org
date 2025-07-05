@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+body {
+	font-size: 2em;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  image-rendering: pixelated !important;
+}
+
+.content {
+	background: #88c9a1;
+	height: 300px;
+	width: 600px;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+}
+
+.content h1 {
+	font-size: 1.7em;
+}
+
+.menu-wrap {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menu {
+	margin-top: 50px;
+	font-size: 1.2em;
+	width: fit-content;
+	text-align: left;
+}
+
+.menu-btn input {
+	appearance: none;
+	position: relative;
+}
+
+.menu-btn input:checked::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: -15px;
+	width: 16px;
+	height: 20px;
+	background-image: url(../img/arrow.png);
+	background-size: 100% 100%;
+}
+
+.agumon,
+.vmon,
+.guilmon,
+.pikachu,
+.chikorita,
+.torchic {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	background-size: 100% 100%;
+	transform: scaleX(-1);
+}
+
+.agumon {
+	left: 30px;
+	bottom: 30px;
+	background-image: url(../img/mons/digimon/gen1/agumon/idle.gif);
+}
+
+.vmon {
+	left: 70px;
+	bottom: 100px;
+	background-image: url(../img/mons/digimon/gen2/vmon/idle.gif);
+}
+
+.guilmon {
+	left: 110px;
+	bottom: 30px;
+	background-image: url(../img/mons/digimon/gen3/guilmon/idle.gif);
+}
+
+.pikachu {
+	right: 30px;
+	bottom: 30px;
+	background-image: url(../img/mons/pokemon/gen1/pikachu/idle.gif);
+}
+
+.chikorita {
+	right: 70px;
+	bottom: 100px;
+	background-image: url(../img/mons/pokemon/gen2/chikorita/idle.gif);
+	width: 64px;
+	height: 64px;
+	transform: none;
+}
+
+.torchic {
+	right: 110px;
+	bottom: 30px;
+	background-image: url(../img/mons/pokemon/gen3/torchic/idle.gif);
+	width: 64px;
+	height: 64px;
+}
