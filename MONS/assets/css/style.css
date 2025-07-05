@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+:root {
+	--frame-color: #222;
+}
+
+body {
+	background-color: #000;
+	background-image: 
+		linear-gradient(to left, cyan 1px, transparent 1px),
+		linear-gradient(to top, cyan 1px, transparent 1px);
+	background-size: 30px 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(100vh - 16px);
+	font-size: 2em;
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.flex,
+.frame {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.content {
+	background-color: #ddd;
+	width: 90%;
+	height: 90%;
+	max-width: 1100px;
+	max-height: 500px;
+	border-radius: 60px;
+	box-shadow:	inset -30px -30px 0 rgba(0,0,0,0.5);
+	position: relative;
+	display: flex;
+	align-items: center;
+	aspect-ratio: 11 / 5;
+}
+
+.content::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/bricks.png);
+	background-size: auto 100%;
+	opacity: 0.25;
+	z-index: 0;
+}
+
+.frame {
+	height: 75%;
+	width: 60%;
+	margin-left: 5%;
+	position: relative;
+}
+
+.frame::before {
+	content: '';
+	border: 20px solid var(--frame-color);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 15px;
+	box-sizing: border-box;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0,
+      transparent calc(33.33% - 10px),
+      var(--frame-color) calc(33.33% - 10px),
+      var(--frame-color) calc(33.33% + 10px),
+      transparent calc(33.33% + 10px)
+    );
+  z-index: 0;
+}
+
+.screen {
+	background: #88c9a1;
+	height: 80%;
+	width: 88%;
+	max-height: 300px;
+	max-width: 600px;
+	z-index: 1;
+	position: relative;
+	border-top: 3px solid rgba(0,0,0,0.5);
+	border-left: 3px solid rgba(0,0,0,0.5);
+	border-right: 3px solid rgba(255,255,255,0.5);
+	border-bottom: 3px solid rgba(255,255,255,0.5);
+	text-align: center;
+	pointer-events: none;
+}
+
+.screen #game {
+	width: 100%;
+	height: 100%;
+}
+
+.button-wrap {
+	height: 75%;
+	width: 50px;
+	top: 0;
+	right: 25%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 10px;
+	z-index: 10;
+}
+
+.button-wrap button {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border: none;
+	position: relative;
+	background: none;
+}
+
+.button-wrap button::before {
+	content: '';
+	background: rgba(0,0,0,0.2);
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 50px;
+	height: 50px;
+}
+
+.button-wrap button:active::before {
+	background: none;
+}
+
+.button-wrap button::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--frame-color);
+	box-shadow: inset -5px -5px 0 rgba(0,0,0,0.3);
+}
+
+.button-wrap button:active::after {
+	box-shadow: inset 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.button-wrap button.up::before,
+.button-wrap button.up::after {
+	clip-path: polygon(50% 0, 100% 100%, 0 100%, 50% 0);
+}
+
+.button-wrap button.select::before,
+.button-wrap button.select::after {
+	border-radius: 50%;
+}
+
+.button-wrap button.down::before,
+.button-wrap button.down::after {
+	clip-path: polygon(0 0, 100% 0, 50% 100%, 0 0);
+}
+
+@media only screen and (max-width: 1100px) {
+	body {
+		font-size: 2.5vw;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.content {
+		height: auto;
+		max-height: 90%;
+		aspect-ratio: 1.2 / 1;
+		border-radius: 15%;
+	}
+
+	.screen {
+		border: none;
+	}
+}
