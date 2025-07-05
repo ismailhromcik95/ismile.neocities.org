@@ -19,3 +19,6 @@ https://ismailhromcik95.github.io/ismile.neocities.org/weather/simple-weather.ht
 
 6. Fact of the Day:
 https://ismailhromcik95.github.io/ismile.neocities.org/facts/
+
+7. MONS Virtual Pet Game:
+https://ismailhromcik95.github.io/ismile.neocities.org/MONS/
