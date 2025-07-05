@@ -38,6 +38,10 @@ body {
 	text-align: left;
 }
 
+.menu-btn {
+	display: block;
+}
+
 .menu-btn input {
 	appearance: none;
 	position: relative;
@@ -47,7 +51,7 @@ body {
 	content: '';
 	position: absolute;
 	top: -20px;
-	left: -15px;
+	left: -22px;
 	width: 16px;
 	height: 20px;
 	background-image: url(../img/arrow.png);
@@ -134,7 +138,7 @@ body {
 		width: 2vh;
 		height: 3vh;
 		top: -3vh;
-		left: -1vh;
+		left: -2vh;
 	}
 }
 
