@@ -7,6 +7,6 @@ buttons.forEach(button => {
             action: button.classList.contains('up') ? 'up' : 
                     button.classList.contains('down') ? 'down' : 
                     'select'
-        }, '*');
+        }, 'ismailhromcik95.github.io');
     });
 });
