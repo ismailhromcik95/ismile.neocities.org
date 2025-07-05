@@ -95,7 +95,7 @@ body {
 	border-right: 3px solid rgba(255,255,255,0.5);
 	border-bottom: 3px solid rgba(255,255,255,0.5);
 	text-align: center;
-	pointer-events: none;
+
 }
 
 .screen #game {
@@ -184,5 +184,11 @@ body {
 
 	.screen {
 		border: none;
+	}
+}
+
+@media only screen and (max-height: 500px) {
+	.content {
+		max-width: 70%;
 	}
 }
