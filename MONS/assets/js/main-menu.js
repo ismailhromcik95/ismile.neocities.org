@@ -5,8 +5,6 @@ window.addEventListener('message', (event) => {
     // Play sound for any button press
     blipSound.currentTime = 0; // Rewind to start if already playing
     blipSound.play().catch(e => console.log("Audio play failed:", e));
-
-    if (event.origin !== "https://ismailhromcik95.github.io") return;
     
     const radios = document.getElementsByName('menu1');
     const currentIndex = Array.from(radios).findIndex(radio => radio.checked);
