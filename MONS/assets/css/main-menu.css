@@ -6,6 +6,7 @@ body {
   font-style: normal;
   image-rendering: pixelated !important;
 	font-size: 2em;
+	overflow: hidden;
 }
 
 .content {
@@ -179,5 +180,11 @@ body {
 	.chikorita,
 	.torchic {
 		display: none;
+	}
+}
+
+@media only screen and (max-height: 260px) {
+	.content {
+		padding: 0 20px;
 	}
 }
