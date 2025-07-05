@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
 
+html,
+body {
+	height: 100%;
+}
+
 body {
   font-family: "Jersey 10", sans-serif;
   font-weight: 400;
@@ -132,18 +137,9 @@ body {
 
 @media only screen and (max-width: 500px) {
 	body {
-		font-size: 5vh;
+		font-size: 5.5vw;
 	}
 
-	.menu-btn input:checked::before {
-		width: 2vh;
-		height: 3vh;
-		top: -3vh;
-		left: -2vh;
-	}
-}
-
-@media only screen and (max-width: 450px) {
 	.vmon {
 		left: 12%;
 	}
@@ -161,18 +157,37 @@ body {
 	}
 }
 
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 450px) {
 	body {
-		font-size: 3vh;
+		font-size: 6vw;
 	}
 
 	.menu-btn input:checked::before {
-		height: 2vh;
-		top: -2vh;
+		width: 3.5vw;
+		height: 4vw;
+		top: -1.3em;
 	}
 }
 
-@media only screen and (max-width: 250px) {
+@media only screen and (max-width: 350px) {
+	body {
+		font-size: 6.5vw;
+	}
+
+	.menu-btn input:checked::before {
+		top: -1.1em;
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	body {
+		font-size: 7vw;
+	}
+
+	.menu-btn input:checked::before {
+		top: -1em;
+	}
+
 	.agumon,
 	.vmon,
 	.guilmon,
@@ -183,8 +198,40 @@ body {
 	}
 }
 
+@media only screen and (max-width: 250px) {
+	.menu-btn input:checked::before {
+		top: -0.8em;
+	}
+}
+
+@media only screen and (max-width: 200px) {
+	.menu-btn input:checked::before {
+		top: -0.6em;
+		left: -1em;
+	}
+}
+
+@media only screen and (max-width: 150px) {
+	.menu-btn input:checked::before {
+		top: -0.4em;
+	}
+}
+
+@media only screen and (max-width: 100px) {
+	.menu-btn input:checked::before {
+		top: -0.2em;
+		left: -0.5em;
+	}
+}
+
 @media only screen and (max-height: 260px) {
 	.content {
 		padding: 0 20px;
+	}
+}
+
+@media only screen and (max-height: 200px) {
+	.menu {
+		margin-top: 10px;
 	}
 }
