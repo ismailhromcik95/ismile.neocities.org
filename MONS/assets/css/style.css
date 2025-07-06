@@ -96,7 +96,7 @@ body {
 	border-right: 3px solid rgba(255,255,255,0.5);
 	border-bottom: 3px solid rgba(255,255,255,0.5);
 	text-align: center;
-
+	pointer-events: none;
 }
 
 .screen #game {
@@ -198,25 +198,31 @@ body {
 
 @media only screen and (max-height: 500px) {
 	.content {
-		max-width: 70%;
-	}
-}
-
-@media only screen and (max-height: 400px) {
-	.content {
 		max-width: 50%;
 	}
 }
 
-@media only screen and (max-height: 350px) {
+@media only screen and (max-height: 450px) {
 	.content {
 		max-width: 40%;
 	}
 }
 
-@media only screen and (max-height: 300px) {
+@media only screen and (max-height: 400px) {
 	.content {
 		max-width: 30%;
+	}
+}
+
+@media only screen and (max-height: 350px) {
+	.content {
+		max-width: 25%;
+	}
+}
+
+@media only screen and (max-height: 300px) {
+	.content {
+		max-width: 20%;
 	}
 
 	.button-wrap button,
@@ -228,14 +234,8 @@ body {
 
 @media only screen and (max-height: 250px) {
 	.content {
-		max-width: 20%;
-	}
-}
-
-@media only screen and (max-height: 210px) {
-	.content {
 		max-width: 15%;
-		min-height: 150px;
+		min-height: 200px;
 		border-radius: 30px;
 	}
 }
