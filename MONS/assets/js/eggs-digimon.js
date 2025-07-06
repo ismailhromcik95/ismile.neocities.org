@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const radios = document.getElementsByName('eggs');
   const eggsContainer = document.querySelector('.eggs');
   const eggs = document.querySelectorAll('.egg');
   const radioInputs = document.querySelectorAll('.egg input');
@@ -26,9 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         break;
         
-      case 'select':
-        console.log('Select pressed - current selection:', radioInputs[currentIndex].value);
-        break;
+case 'select':
+    console.log('Select pressed - current selection:', radioInputs[currentIndex].value);
+    if (radios[currentIndex].id === 'botamonEgg') {
+        // Send message to parent before navigating
+        window.parent.postMessage({ type: 'eggSelected', eggType: 'fire' }, '*');
+        window.location.href = 'hatch.html';
+    }
+    break;
     }
   });
 
