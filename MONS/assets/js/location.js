@@ -11,6 +11,9 @@ window.addEventListener('message', (event) => {
             
         case 'select':
             console.log('Select pressed - current selection:', radios[currentIndex].value);
+            if (radios[currentIndex].id === 'digimonLocation') {
+                window.location.href = 'eggs-digimon.html';
+            }
             break;
     }
 });
