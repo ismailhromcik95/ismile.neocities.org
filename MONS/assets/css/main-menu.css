@@ -229,6 +229,12 @@ body {
 	height: 84px;
 }
 
+.egg-hatch {
+	aspect-ratio: 16 / 17;
+	height: 90%;
+	width: auto;
+}
+
 @media only screen and (max-width: 599px) {
 	.eggs-wrap {
 		width: 92vw;
