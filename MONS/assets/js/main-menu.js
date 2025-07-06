@@ -1,11 +1,4 @@
-// Preload the audio file
-const blipSound = new Audio('assets/audio/blip.mp3');
-
 window.addEventListener('message', (event) => {
-    // Play sound for any button press
-    blipSound.currentTime = 0; // Rewind to start if already playing
-    blipSound.play().catch(e => console.log("Audio play failed:", e));
-    
     const radios = document.getElementsByName('menu1');
     const currentIndex = Array.from(radios).findIndex(radio => radio.checked);
     
@@ -18,6 +11,9 @@ window.addEventListener('message', (event) => {
             
         case 'select':
             console.log('Select pressed - current selection:', radios[currentIndex].value);
+            if (radios[currentIndex].id === 'newGame') {
+                window.location.href = 'location.html';
+            }
             break;
     }
 });
