@@ -15,7 +15,8 @@ body {
 }
 
 .flex,
-.location.poke.soon {
+.location.poke.soon,
+.egg {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -55,20 +56,40 @@ body {
 	display: block;
 }
 
-.menu-btn input {
+.menu-btn input,
+.location input,
+.egg input {
 	appearance: none;
+}
+
+.menu-btn input {
 	position: relative;
 }
 
-.menu-btn input:checked::before {
+.menu-btn input:checked::before,
+.location input:checked::before,
+.egg input:checked::before {
 	content: '';
 	position: absolute;
-	top: -20px;
-	left: -22px;
 	width: 16px;
 	height: 20px;
 	background-image: url(../img/arrow.png);
 	background-size: 100% 100%;
+}
+
+.menu-btn input:checked::before {
+	top: -20px;
+	left: -22px;
+}
+
+.location input:checked::before {
+	bottom: -25px;
+	left: 50%;
+	transform: rotate(270deg) translate(50%, -50%);
+}
+
+.egg input:checked::before {
+	transform: rotate(270deg) translate(50%, -50%);
 }
 
 .agumon,
@@ -176,20 +197,51 @@ body {
 	display: block;
 }
 
-.location input {
-	appearance: none;
+.eggs-wrap {
+	width: 560px;
+	height: 190px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
 }
 
-.location input:checked::before {
-	content: '';
-	position: absolute;
-	bottom: -25px;
-	left: 50%;
-	width: 16px;
-	height: 20px;
-	background-image: url(../img/arrow.png);
-	background-size: 100% 100%;
-	transform: rotate(270deg) translate(50%, -50%);
+.eggs {
+	display: flex;
+	gap: 120px;
+	width: max-content;
+	padding-left: 5%;
+}
+
+.egg {
+	flex-direction: column;
+	gap: 20px;
+	position: relative;
+}
+
+.type-icon {
+	width: 56px;
+	height: 56px;
+}
+
+.egg-icon {
+	width: 84px;
+	height: 84px;
+}
+
+@media only screen and (max-width: 599px) {
+	.eggs-wrap {
+		width: 92vw;
+	}
+
+	.eggs {
+		gap: 20vw;
+	}
+
+	.egg-icon {
+		width: 14vw;
+		height: 14vw;
+	}
 }
 
 @media only screen and (max-width: 550px) {
@@ -247,6 +299,15 @@ body {
 	.locations {
 		gap: 15vw;
 	}
+
+	.type-icon {
+		width: 13vw;
+		height: 13vw;
+	}
+
+	.eggs {
+		padding-left: 3vh;
+	}
 }
 
 
@@ -282,11 +343,20 @@ body {
 		width: 40vw;
 		height: 40vw;
 	}
+
+	.eggs {
+		padding-left: 2vh;
+	}
 }
 
 @media only screen and (max-width: 250px) {
 	.menu-btn input:checked::before {
 		top: -0.8em;
+	}
+
+	.eggs {
+		padding-left: 1vh;
+		gap: 18vw;
 	}
 }
 
@@ -298,6 +368,11 @@ body {
 
 	.location-wrap {
 		margin-top: 0;
+	}
+
+	.eggs {
+		padding-left: 0;
+		gap: 16vw;
 	}
 }
 
