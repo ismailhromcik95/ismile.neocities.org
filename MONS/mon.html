@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botamon</title>
+    <link href="assets/css/reset.css" rel="stylesheet" type="text/css" media="all">
+    <link href="assets/css/main-menu.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="favicon.png">
+  </head>
+  <body>
+    <div class="content">
+      <div class="ui-wrap">
+        <div class="top-ui">
+          <label class="ui-item info"><input type="radio" name="mon-ui" id="UIinfo" checked></label>
+          <label class="ui-item feed"><input type="radio" name="mon-ui" id="UIfeed"></label>
+          <label class="ui-item train"><input type="radio" name="mon-ui" id="UItrain"></label>
+          <label class="ui-item clean"><input type="radio" name="mon-ui" id="UIclean"></label>
+        </div>
+        <div class="mon-wrap">
+          <div class="mon"></div>
+        </div>
+        <div class="bottom-ui">
+          <label class="ui-item heal"><input type="radio" name="mon-ui" id="UIheal"></label>
+          <label class="ui-item rename"><input type="radio" name="mon-ui" id="UIrename"></label>
+          <label class="ui-item save"><input type="radio" name="mon-ui" id="UIsave"></label>
+          <label class="ui-item delete"><input type="radio" name="mon-ui" id="UIdelete"></label>
+        </div>
+        <div class="info-cont hidden">
+          <div class="info-left">
+            <p>Name: <span class="mon-name"></span></p>
+            <p>Species: <span class="mon-species"></span></p>
+            <p>Family: <span class="mon-family"></span></p>
+          </div>
+          <div class="info-right">
+            <p>Type: <span class="mon-type"></span></p>
+            <p>Level: <span class="mon-level"></span></p>
+            <p>Age: <span class="mon-age"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/mon.js" type="text/javascript"></script>
+  </body>
+</html>
