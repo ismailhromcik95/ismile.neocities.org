@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
       // Save hatching timestamp (current time in ISO format)
       const hatchTime = new Date().toISOString();
       localStorage.setItem('hatchTimestamp', hatchTime);
-      
-      // Set initial age
       localStorage.setItem('monAge', '1 day');
-      
+      localStorage.setItem('monHunger', '1');
+
       updateMonNameElements(monName);
       window.location.href = 'mon.html';
     }
