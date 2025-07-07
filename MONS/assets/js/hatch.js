@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('hatchTimestamp', hatchTime);
       localStorage.setItem('monAge', '1 day');
       localStorage.setItem('monHunger', '1');
+      localStorage.setItem('monStatus', 'healthy');
 
       updateMonNameElements(monName);
       window.location.href = 'mon.html';
