@@ -238,13 +238,13 @@ function updateHungerDisplay(hungerValue) {
     if (!hungerElement) return;
     
     if (hungerValue === 0) {
-        hungerElement.style.background = 'none';
-    } else if (hungerValue === 10) {
         hungerElement.style.background = '#000';
+    } else if (hungerValue === 10) {
+        hungerElement.style.background = 'none';
     } else {
         const percentage = hungerValue * 10;
         hungerElement.style.background = 
-            `linear-gradient(90deg, #000 0% ${percentage}%, transparent ${percentage}% 100%)`;
+            `linear-gradient(270deg, transparent 0% ${percentage}%, #000 ${percentage}% 100%)`;
     }
 }
 
@@ -364,7 +364,32 @@ initializeHunger();
           } 
           else {
         // Calculate time until next feeding
-            const lastFedTime = localStorage.getItem('lastFedTime') || localStorage.getItem('hatchTimestamp') || Date.now();
+
+    // 1. Get lastFedTime with proper fallback logic
+    let lastFedTime = localStorage.getItem('lastFedTime');
+    
+    // If lastFedTime is invalid, use hatchTimestamp instead
+    if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
+        console.log('lastFedTime invalid - falling back to hatchTimestamp');
+        const hatchTime = localStorage.getItem('hatchTimestamp');
+        
+        // Convert ISO string to timestamp if needed
+        lastFedTime = isISOString(hatchTime) 
+            ? Date.parse(hatchTime).toString() 
+            : hatchTime;
+        
+        // If still invalid, create new timestamp
+        if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
+            console.log('hatchTimestamp also invalid - creating new timestamp');
+            lastFedTime = Date.now().toString();
+            localStorage.setItem('hatchTimestamp', lastFedTime);
+        }
+    }
+
+    // 3. Parse to number (now guaranteed to exist)
+    lastFedTime = parseInt(lastFedTime);
+
+
             const currentTime = Date.now();
             const hoursPassed = (currentTime - parseInt(lastFedTime)) / (1000 * 60 * 60);
             const hoursNeeded = 2 * (5 - currentHunger) - hoursPassed;
