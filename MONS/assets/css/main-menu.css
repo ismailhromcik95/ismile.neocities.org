@@ -559,16 +559,39 @@ body {
 		width: 40vh;
 		height: 40vh;
 	}
+
+	.info-cont {
+		height: calc(100% - 32vw);
+    margin: 16vw 0;
+    border: none;
+	}
+}
+
+@media only screen and (max-height: 210px) {
+	.info-cont {
+		height: calc(100% - 35vw);
+    margin: 17.5vw 0;
+	}
 }
 
 @media only screen and (max-height: 200px) {
 	.menu {
 		margin-top: 10px;
 	}
+
+	.info-cont {
+		height: calc(100% - 41vw);
+    margin: 20.5vw 0;
+	}
 }
 
-@media only screen and (max-height: 150px) {
+@media only screen and (max-height: 147px) {
 	.mon {
 		min-height: 30px;
+	}
+
+	.info-cont {
+		height: calc(100% - 55vw);
+    margin: 27.5vw 0;
 	}
 }
