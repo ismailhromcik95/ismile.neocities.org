@@ -183,21 +183,19 @@ function initializeHunger() {
     // If lastFedTime is invalid, use hatchTimestamp instead
     if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
         console.log('lastFedTime invalid - falling back to hatchTimestamp');
-        lastFedTime = localStorage.getItem('hatchTimestamp');
+        const hatchTime = localStorage.getItem('hatchTimestamp');
         
-        // If hatchTimestamp is also invalid, create new timestamp
+        // Convert ISO string to timestamp if needed
+        lastFedTime = isISOString(hatchTime) 
+            ? Date.parse(hatchTime).toString() 
+            : hatchTime;
+        
+        // If still invalid, create new timestamp
         if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
             console.log('hatchTimestamp also invalid - creating new timestamp');
             lastFedTime = Date.now().toString();
             localStorage.setItem('hatchTimestamp', lastFedTime);
         }
-    }
-
-    // 2. Final fallback: Initialize fresh timestamp if all checks failed
-    if (isNaN(parseInt(lastFedTime))) {
-        console.log('All checks failed - creating new timestamp');
-        lastFedTime = Date.now().toString();
-        localStorage.setItem('hatchTimestamp', lastFedTime);
     }
 
     // 3. Parse to number (now guaranteed to exist)
@@ -228,6 +226,11 @@ function initializeHunger() {
             alert("Your MON is starving!\nPlease feed him!");
         }, 1000);
     }
+}
+
+// Helper to check ISO strings
+function isISOString(str) {
+    return /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/.test(str);
 }
 
 function updateHungerDisplay(hungerValue) {
@@ -378,6 +381,15 @@ initializeHunger();
             alert(`Your MON is not hungry enough yet.\nYou can feed him in ${message}.`);
           }
         }
+
+        else if (radios[currentIndex].id === 'UIheal') {
+          console.log('MON Status:', localStorage.getItem('monStatus'));
+          const monStatus = localStorage.getItem('monStatus');
+          if (monStatus === 'healthy') {
+            alert(`Your MON is already healthy!`);
+          }
+        }
+
         break;
       }
 
