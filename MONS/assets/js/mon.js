@@ -97,6 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (getPoopCount() >= maxPoops) break;
         createPoopElement();
     }
+
+    // Check for existing poops on load
+    if (getPoopCount() > 0) {
+        setTimeout(() => {
+            alert("Your MON made a mess!\nPlease clean it up.");
+        }, 1000); // 1 second delay after page loads
+    }
+
     
     // Start active pooping if under max
     if (getPoopCount() < maxPoops) {
@@ -152,11 +160,87 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('beforeunload', clearAllPoopTimers);
 
-  window.addEventListener('message', (event) => {
-    const radios = document.getElementsByName('mon-ui');
-    const currentIndex = Array.from(radios).findIndex(radio => radio.checked);
+function initializeHunger() {
+    // Debug logs
+    console.log('Original lastFedTime:', localStorage.getItem('lastFedTime'));
+    console.log('Original hatchTimestamp:', localStorage.getItem('hatchTimestamp'));
+
+    // 1. Get lastFedTime with proper fallback logic
+    let lastFedTime = localStorage.getItem('lastFedTime');
     
-    switch(event.data.action) {
+    // If lastFedTime is invalid, use hatchTimestamp instead
+    if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
+        console.log('lastFedTime invalid - falling back to hatchTimestamp');
+        lastFedTime = localStorage.getItem('hatchTimestamp');
+        
+        // If hatchTimestamp is also invalid, create new timestamp
+        if (!lastFedTime || isNaN(parseInt(lastFedTime))) {
+            console.log('hatchTimestamp also invalid - creating new timestamp');
+            lastFedTime = Date.now().toString();
+            localStorage.setItem('hatchTimestamp', lastFedTime);
+        }
+    }
+
+    // 2. Final fallback: Initialize fresh timestamp if all checks failed
+    if (isNaN(parseInt(lastFedTime))) {
+        console.log('All checks failed - creating new timestamp');
+        lastFedTime = Date.now().toString();
+        localStorage.setItem('hatchTimestamp', lastFedTime);
+    }
+
+    // 3. Parse to number (now guaranteed to exist)
+    lastFedTime = parseInt(lastFedTime);
+
+    const currentTime = Date.now();
+    const hoursSinceFed = Math.floor((currentTime - parseInt(lastFedTime)) / (1000 * 60 * 60));
+    
+    console.log('Last fed/hatch time:', new Date(parseInt(lastFedTime)).toLocaleString());
+    console.log('Current time:', new Date(currentTime).toLocaleString());
+    console.log('Hours since fed:', hoursSinceFed);
+
+    // Calculate hunger increase (max 10)
+    const hungerIncrease = Math.min(Math.floor(hoursSinceFed / 2), 10);
+    let currentHunger = parseInt(localStorage.getItem('monHunger')) || 0;
+    
+    console.log('Initial hunger:', currentHunger);
+    console.log('Hunger to add:', hungerIncrease);
+
+    currentHunger = Math.min(currentHunger + hungerIncrease, 10);
+    localStorage.setItem('monHunger', currentHunger);
+    
+    console.log('New hunger level:', currentHunger);
+    updateHungerDisplay(currentHunger);
+    
+    if (currentHunger === 10) {
+        setTimeout(() => {
+            alert("Your MON is starving!\nPlease feed him!");
+        }, 1000);
+    }
+}
+
+function updateHungerDisplay(hungerValue) {
+    const hungerElement = document.querySelector('.mon-hunger');
+    if (!hungerElement) return;
+    
+    if (hungerValue === 0) {
+        hungerElement.style.background = 'none';
+    } else if (hungerValue === 10) {
+        hungerElement.style.background = '#000';
+    } else {
+        const percentage = hungerValue * 10;
+        hungerElement.style.background = 
+            `linear-gradient(90deg, #000 0% ${percentage}%, transparent ${percentage}% 100%)`;
+    }
+}
+
+// Call this on page load
+initializeHunger();
+
+    window.addEventListener('message', (event) => {
+      const radios = document.getElementsByName('mon-ui');
+      const currentIndex = Array.from(radios).findIndex(radio => radio.checked);
+
+      switch(event.data.action) {
       case 'up':
         const previousIndex = (currentIndex - 1 + radios.length) % radios.length;
         radios[previousIndex].checked = true;
@@ -167,91 +251,123 @@ document.addEventListener('DOMContentLoaded', function() {
         radios[nextIndex].checked = true;
         break;
         
-case 'select':
-    console.log('Select pressed - current selection:', radios[currentIndex].value);
-    
+      case 'select':
+        console.log('Select pressed - current selection:', radios[currentIndex].value);
+
     // First check if info panel is open
-    const infoPanel = document.querySelector('.info-cont');
-    if (infoPanel && !infoPanel.classList.contains('hidden')) {
+        const infoPanel = document.querySelector('.info-cont');
+        if (infoPanel && !infoPanel.classList.contains('hidden')) {
         // If info panel is visible, close it and exit
-        infoPanel.classList.add('hidden');
-        break;
-    }
-    
+          infoPanel.classList.add('hidden');
+          break;
+        }
+
     // Otherwise handle normal select actions
-    if (radios[currentIndex].id === 'UIdelete') {
-        if (confirm("Are you sure you want to delete your MON?\nWarning: The MON will die!")) {
+        if (radios[currentIndex].id === 'UIdelete') {
+          if (confirm("Are you sure you want to delete your MON?\nWarning: The MON will die!")) {
             localStorage.clear();
             window.parent.postMessage({ type: 'refresh' }, '*');
+          }
         }
-    }
-    else if (radios[currentIndex].id === 'UIsave') {
-        exportMonData();
-    }
-    else if (radios[currentIndex].id === 'UIrename') {
-        const currentName = localStorage.getItem('monName') || "Your MON";
-        const newName = prompt("Rename your MON:", currentName);
-        
-        if (newName !== null) {
+        else if (radios[currentIndex].id === 'UIsave') {
+          exportMonData();
+        }
+        else if (radios[currentIndex].id === 'UIrename') {
+          const currentName = localStorage.getItem('monName') || "Your MON";
+          const newName = prompt("Rename your MON:", currentName);
+
+          if (newName !== null) {
             localStorage.setItem('monName', newName);
             window.parent.postMessage({ 
-                type: 'monRenamed', 
-                name: newName 
+              type: 'monRenamed', 
+              name: newName 
             }, '*');
+          }
+          window.location.reload();
         }
-        window.location.reload();
-    }
-    else if (radios[currentIndex].id === 'UIinfo') {
-        const infoPanel = document.querySelector('.info-cont');
-        if (infoPanel) {
+        else if (radios[currentIndex].id === 'UIinfo') {
+          const infoPanel = document.querySelector('.info-cont');
+          if (infoPanel) {
             infoPanel.classList.remove('hidden');
+          }
         }
-    }
-else if (radios[currentIndex].id === 'UIclean') {
-    const poopClean = document.querySelector('.poop-clean');
-    const poopCont = document.querySelector('.poop-cont');
-    
-    if (poopClean && poopCont) {
+
+        else if (radios[currentIndex].id === 'UIclean') {
+          const poopClean = document.querySelector('.poop-clean');
+          const poopCont = document.querySelector('.poop-cont');
+
+          if (poopClean && poopCont) {
         // Show cleaning interface
-        poopClean.classList.remove('hidden');
-        
+            poopClean.classList.remove('hidden');
+
         // Animate poop container out
-        poopCont.style.transition = 'transform 0.5s ease-in-out';
-        poopCont.style.transform = 'translateX(100%)';
-        
+            poopCont.style.transition = 'transform 0.5s ease-in-out';
+            poopCont.style.transform = 'translateX(100%)';
+
         // After animation completes
-        setTimeout(() => {
-            // Remove all poop elements
-            const poops = document.querySelectorAll('.poop-cont .poop');
-            poops.forEach(poop => poop.remove());
-            
-            // Clear storage
-            localStorage.removeItem('poopCount');
-            
-            // Reset container position (hidden during reset)
-            poopCont.style.transition = 'none';
-            poopCont.style.transform = 'translateX(-100%)';
-            
-            // Animate back in
             setTimeout(() => {
+            // Remove all poop elements
+              const poops = document.querySelectorAll('.poop-cont .poop');
+              poops.forEach(poop => poop.remove());
+
+            // Clear storage
+              localStorage.removeItem('poopCount');
+
+            // Reset container position (hidden during reset)
+              poopCont.style.transition = 'none';
+              poopCont.style.transform = 'translateX(-100%)';
+
+            // Animate back in
+              setTimeout(() => {
                 poopCont.style.transition = 'transform 0.5s ease-in-out';
                 poopCont.style.transform = 'translateX(0)';
                 
                 // Hide cleaning interface after completion
                 setTimeout(() => {
-                    poopClean.classList.add('hidden');
+                  poopClean.classList.add('hidden');
                 }, 500);
-            }, 50);
-            
+              }, 50);
+
             // Reset poop timers
-            clearAllPoopTimers();
-            localStorage.setItem('lastCleanTime', Date.now());
-            
+              clearAllPoopTimers();
+              localStorage.setItem('lastCleanTime', Date.now());
+
         }, 500); // Matches CSS transition duration
-    }
-}
-    break;
-}
+          }
+        }
+
+        else if (radios[currentIndex].id === 'UIfeed') {
+          const currentHunger = parseInt(localStorage.getItem('monHunger')) || 0;
+
+          if (currentHunger >= 5) {
+        // Feed the MON
+            const newHunger = currentHunger - 5;
+            localStorage.setItem('monHunger', newHunger);
+            localStorage.setItem('lastFedTime', Date.now());
+            updateHungerDisplay(newHunger);
+            alert(`Your MON has been fed successfully!`);
+          } 
+          else {
+        // Calculate time until next feeding
+            const lastFedTime = localStorage.getItem('lastFedTime') || localStorage.getItem('hatchTimestamp') || Date.now();
+            const currentTime = Date.now();
+            const hoursPassed = (currentTime - parseInt(lastFedTime)) / (1000 * 60 * 60);
+            const hoursNeeded = 2 * (5 - currentHunger) - hoursPassed;
+
+            let message;
+            if (hoursNeeded <= 0) {
+              message = "less than 1 hour";
+            } else if (hoursNeeded < 1) {
+              message = "less than 1 hour";
+            } else {
+              message = `${Math.ceil(hoursNeeded)} hour${Math.ceil(hoursNeeded) > 1 ? 's' : ''}`;
+            }
+
+            alert(`Your MON is not hungry enough yet.\nYou can feed him in ${message}.`);
+          }
+        }
+        break;
+      }
 
 // Add this function to your code
 function exportMonData() {
@@ -263,7 +379,12 @@ function exportMonData() {
         type: localStorage.getItem('selectedEggType'),
         level: localStorage.getItem('monLevel'),
         age: localStorage.getItem('monAge'),
-        hatch_date: localStorage.getItem('hatchTimestamp'),
+        hunger: localStorage.getItem('monHunger'),
+        feed_time: localStorage.getItem('lastFedTime'),
+        hatch_time: localStorage.getItem('hatchTimestamp'),
+        clean_time: localStorage.getItem('lastCleanTime'),
+        poop_count: localStorage.getItem('poopCount'),
+        status: localStorage.getItem('monStatus'),
         save_date: new Date().toISOString()
     };
 
