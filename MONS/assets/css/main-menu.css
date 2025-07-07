@@ -347,6 +347,7 @@ body {
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
 	white-space: nowrap;
+	gap: 5px;
 }
 
 .poop-cont {
