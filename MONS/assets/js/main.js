@@ -42,7 +42,13 @@ window.addEventListener('message', (event) => {
               localStorage.setItem('selectedEggType', monData.type);
               localStorage.setItem('monLevel', monData.level);
               localStorage.setItem('monAge', monData.age);
+              localStorage.setItem('monHunger', monData.hunger);
+              localStorage.setItem('lastFedTime', monData.feed_time);
               localStorage.setItem('hatchTimestamp', monData.hatch_date);
+              localStorage.setItem('lastCleanTime', monData.clean_time);
+              localStorage.setItem('poopCount', monData.poop_count);
+              localStorage.setItem('monStatus', monData.status);
+
               // Notify the iframe
               event.source.postMessage({ type: 'uploadComplete' }, '*');
             };
