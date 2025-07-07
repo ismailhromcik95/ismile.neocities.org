@@ -72,6 +72,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+    const savedStatus = localStorage.getItem('monStatus');
+  if (savedStatus) {
+    updateMonStatusElements(savedStatus);
+  }
+
+  function updateMonStatusElements(status) {
+    const statusElements = document.querySelectorAll('.mon-status');
+    statusElements.forEach(element => {
+      element.textContent = status;
+    });
+  }
+
     // Initialize poop system
      const poopContainer = document.querySelector('.poop-cont');
     const maxPoops = 6;
