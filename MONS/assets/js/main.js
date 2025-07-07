@@ -18,9 +18,11 @@ const buttons = document.querySelectorAll('.controls');
 
 window.addEventListener('message', (event) => {
     if (event.data.eggType === 'fire') {
-        // Change colors
         document.documentElement.style.setProperty('--main-color', 'orange');
         document.documentElement.style.setProperty('--frame-color', 'blue');
+
+        const artElement = document.querySelector('.art');
+        artElement.style.setProperty('background-image', 'url("assets/img/mons/digimon/gen1/lvl1/botamon/art.png")');
     }
 
     if (event.data.type === 'refresh') {
@@ -70,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (eggType === 'fire') {
         document.documentElement.style.setProperty('--main-color', 'orange');
         document.documentElement.style.setProperty('--frame-color', 'blue');
+
+        const artElement = document.querySelector('.art');
+        artElement.style.setProperty('background-image', 'url("assets/img/mons/digimon/gen1/lvl1/botamon/art.png")');
     }
 });
 
