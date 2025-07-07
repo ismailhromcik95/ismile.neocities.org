@@ -72,6 +72,85 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+    // Initialize poop system
+     const poopContainer = document.querySelector('.poop-cont');
+    const maxPoops = 6;
+    const poopInterval = 20 * 1000; // 20 seconds for active pooping
+    const backgroundPoopInterval = 4 * 60 * 60 * 1000; // 4 hours in ms
+    let poopTimers = [];
+    
+    // Load saved data
+    const savedPoops = parseInt(localStorage.getItem('poopCount')) || 0;
+    const lastCleanTime = localStorage.getItem('lastCleanTime') || Date.now();
+    const lastPoopTime = localStorage.getItem('lastPoopTime') || Date.now();
+    
+    // Calculate background poops (while page was closed)
+    const currentTime = Date.now();
+    const timeSinceLastPoop = currentTime - parseInt(lastPoopTime);
+    const backgroundPoops = Math.min(
+        Math.floor(timeSinceLastPoop / backgroundPoopInterval),
+        maxPoops - savedPoops
+    );
+    
+    // Create initial poops (saved + background)
+    for (let i = 0; i < savedPoops + backgroundPoops; i++) {
+        if (getPoopCount() >= maxPoops) break;
+        createPoopElement();
+    }
+    
+    // Start active pooping if under max
+    if (getPoopCount() < maxPoops) {
+        // First active poop
+        const timeSinceLastActivePoop = currentTime - parseInt(lastPoopTime);
+        const nextPoopDelay = Math.max(poopInterval - timeSinceLastActivePoop, 0);
+        
+        poopTimers.push(setTimeout(() => {
+            if (getPoopCount() < maxPoops) {
+                createPoopElement();
+            }
+            startRegularPoops();
+        }, nextPoopDelay));
+    }
+    
+    function startRegularPoops() {
+        if (getPoopCount() < maxPoops) {
+            poopTimers.push(setInterval(() => {
+                if (getPoopCount() >= maxPoops) {
+                    clearAllPoopTimers();
+                } else {
+                    createPoopElement();
+                }
+            }, poopInterval));
+        }
+    }
+    
+    function createPoopElement() {
+        if (getPoopCount() >= maxPoops) return;
+        
+        const poop = document.createElement('div');
+        poop.className = 'poop';
+        poopContainer.appendChild(poop);
+        savePoopState();
+    }
+    
+    function getPoopCount() {
+        return document.querySelectorAll('.poop-cont .poop').length;
+    }
+    
+    function savePoopState() {
+        localStorage.setItem('poopCount', getPoopCount());
+        localStorage.setItem('lastPoopTime', Date.now());
+    }
+    
+    function clearAllPoopTimers() {
+        poopTimers.forEach(timer => {
+            clearTimeout(timer);
+            clearInterval(timer);
+        });
+        poopTimers = [];
+    }
+    
+    window.addEventListener('beforeunload', clearAllPoopTimers);
 
   window.addEventListener('message', (event) => {
     const radios = document.getElementsByName('mon-ui');
@@ -128,6 +207,49 @@ case 'select':
             infoPanel.classList.remove('hidden');
         }
     }
+else if (radios[currentIndex].id === 'UIclean') {
+    const poopClean = document.querySelector('.poop-clean');
+    const poopCont = document.querySelector('.poop-cont');
+    
+    if (poopClean && poopCont) {
+        // Show cleaning interface
+        poopClean.classList.remove('hidden');
+        
+        // Animate poop container out
+        poopCont.style.transition = 'transform 0.5s ease-in-out';
+        poopCont.style.transform = 'translateX(100%)';
+        
+        // After animation completes
+        setTimeout(() => {
+            // Remove all poop elements
+            const poops = document.querySelectorAll('.poop-cont .poop');
+            poops.forEach(poop => poop.remove());
+            
+            // Clear storage
+            localStorage.removeItem('poopCount');
+            
+            // Reset container position (hidden during reset)
+            poopCont.style.transition = 'none';
+            poopCont.style.transform = 'translateX(-100%)';
+            
+            // Animate back in
+            setTimeout(() => {
+                poopCont.style.transition = 'transform 0.5s ease-in-out';
+                poopCont.style.transform = 'translateX(0)';
+                
+                // Hide cleaning interface after completion
+                setTimeout(() => {
+                    poopClean.classList.add('hidden');
+                }, 500);
+            }, 50);
+            
+            // Reset poop timers
+            clearAllPoopTimers();
+            localStorage.setItem('lastCleanTime', Date.now());
+            
+        }, 500); // Matches CSS transition duration
+    }
+}
     break;
 }
 
