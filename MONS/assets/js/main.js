@@ -48,6 +48,7 @@ window.addEventListener('message', (event) => {
               localStorage.setItem('lastCleanTime', monData.clean_time);
               localStorage.setItem('poopCount', monData.poop_count);
               localStorage.setItem('monStatus', monData.status);
+              localStorage.setItem('trainingNumber', monData.training_number);
 
               // Notify the iframe
               event.source.postMessage({ type: 'uploadComplete' }, '*');
