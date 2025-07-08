@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const hatchTime = new Date().toISOString();
       localStorage.setItem('hatchTimestamp', hatchTime);
       localStorage.setItem('monAge', '1 day');
-      localStorage.setItem('monHunger', '1');
+      localStorage.setItem('monHunger', '5');
       localStorage.setItem('monStatus', 'healthy');
+      localStorage.setItem('trainingNumber', '0');
 
       updateMonNameElements(monName);
       window.location.href = 'mon.html';
