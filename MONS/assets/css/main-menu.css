@@ -275,7 +275,12 @@ body {
 	opacity: 0.5;
 }
 
-.ui-item:has(input[type="radio"]:checked) {
+.train-window .ui-item {
+	opacity: 0.3;
+}
+
+.ui-item:has(input[type="radio"]:checked),
+.train-window .ui-item.train {
 	opacity: 1;
 }
 
@@ -326,6 +331,84 @@ body {
 	will-change: transform;
 }
 
+.mon-hunger {
+	display: inline-block;
+	border: 3px solid #000;
+  width: 22vw;
+  height: 7vh;
+  margin-bottom: -3px;
+}
+
+.train-window .mon-wrap {
+	position: relative;
+	overflow: hidden;
+	justify-content: flex-end;
+}
+
+.train-window .mon {
+	height: 50%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.mon.attacking {
+	background-image: url(../img/mons/digimon/gen1/lvl1/botamon/attack.png);
+}
+
+.train-wall,
+.train-bar {
+	height: 100%;
+	width: auto;
+	background-size: 100% auto;
+	position: absolute;
+}
+
+.train-wall {
+	aspect-ratio: 1 / 2;
+	background-image: url(../img/other/train-wall.png);
+	top: 0;
+	left: 0;
+}
+
+.train-bar {
+	aspect-ratio: 3 / 8;
+	background-image: url(../img/other/train-bar.png);
+	bottom: 0;
+	right: 20%;
+	animation: upDown 1.5s step-start infinite;
+}
+
+@keyframes upDown {
+  0%, 100% {
+    transform: translateY(100%);
+  }
+  6.25%, 93.75% {
+    transform: translateY(87.5%);
+  }
+  12.5%, 87.5% {
+    transform: translateY(75%);
+  }
+  18.75%, 81.25% {
+    transform: translateY(62.5%);
+  }
+  25%, 75% {
+    transform: translateY(50%);
+  }
+  31.25%, 68.75% {
+    transform: translateY(37.5%);
+  }
+  37.5%, 62.5% {
+    transform: translateY(25%);
+  }
+  43.75%, 56.25% {
+    transform: translateY(12.5%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
 .info-cont,
 .poop-cont,
 .poop-clean {
@@ -343,23 +426,11 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 70px;
+	padding: 0 50px;
 	border-top: 1px solid #000;
 	border-bottom: 1px solid #000;
 	white-space: nowrap;
-	gap: 5px;
-}
-
-.poop-cont {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  width: auto;
-  aspect-ratio: 2 / 3;
-  grid-auto-flow: dense;
-  align-items: end;
-  justify-items: end;
-  right: 0;
+	gap: 15px;
 }
 
 .poop-clean {
@@ -372,6 +443,114 @@ body {
 	background-repeat: no-repeat;
 }
 
+.poop-cont,
+.attack-cont {
+  display: grid;
+  width: auto;
+  grid-auto-flow: dense;
+  align-items: end;
+  justify-items: end;
+}
+
+.poop-cont {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: 2 / 3;
+  right: 0;
+}
+
+.attack-cont {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  aspect-ratio: 3 / 2;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 15%;
+}
+
+.attack-cont.animated {
+	animation: attack 0.5s step-start forwards;
+}
+
+@keyframes attack {
+  0% {
+    transform: translateX(0);
+  }
+  4.17% {
+    transform: translateX(-4.17%);
+  }
+  8.33% {
+    transform: translateX(-8.33%);
+  }
+  12.5% {
+    transform: translateX(-12.5%);
+  }
+  16.67% {
+    transform: translateX(-16.67%);
+  }
+  20.83% {
+    transform: translateX(-20.83%);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  29.17% {
+    transform: translateX(-29.17%);
+  }
+  33.33% {
+    transform: translateX(-33.33%);
+  }
+  37.5% {
+    transform: translateX(-37.5%);
+  }
+  41.67% {
+    transform: translateX(-41.67%);
+  }
+  45.83% {
+    transform: translateX(-45.83%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  54.17% {
+    transform: translateX(-54.17%);
+  }
+  58.33% {
+    transform: translateX(-58.33%);
+  }
+  62.5% {
+    transform: translateX(-62.5%);
+  }
+  66.67% {
+    transform: translateX(-66.67%);
+  }
+  70.83% {
+    transform: translateX(-70.83%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  79.17% {
+    transform: translateX(-79.17%);
+  }
+  83.33% {
+    transform: translateX(-83.33%);
+  }
+  87.5% {
+    transform: translateX(-87.5%);
+  }
+  91.67% {
+    transform: translateX(-91.67%);
+  }
+  95.83% {
+    transform: translateX(-95.83%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .poop:nth-child(1) { grid-column: 2; grid-row: 3; }
 .poop:nth-child(2) { grid-column: 2; grid-row: 2; }
 .poop:nth-child(3) { grid-column: 2; grid-row: 1; }
@@ -379,19 +558,36 @@ body {
 .poop:nth-child(5) { grid-column: 1; grid-row: 2; }
 .poop:nth-child(6) { grid-column: 1; grid-row: 1; }
 
-.poop {
-	background-image: url(../img/other/poop.gif);
+.poop,
+.attack {
 	background-size: 100% auto;
 	width: 100%;
 	height: 100%;
 }
 
-.mon-hunger {
-	display: inline-block;
-	border: 3px solid #000;
-  width: 22vw;
-  height: 7vh;
-  margin-bottom: -3px;
+.poop {
+	background-image: url(../img/other/poop.gif);
+}
+
+.attack {
+	background-image: url(../img/other/attacks/attack1.png);
+}
+
+.training-number {
+	align-self: flex-start;
+	justify-self: flex-end;
+	margin-top: 5vh;
+}
+
+.explosion {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: auto;
+	aspect-ratio: 1 / 1;
+	background-image: url(../img/other/explosion.gif);
+	background-size: 100% auto;
 }
 
 @media only screen and (max-width: 599px) {
@@ -546,10 +742,13 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		height: calc(100% - 122px);
 		margin: 28.5vw 0;
 	}
+
+	.train-window .ui-wrap {padding: 0;}
 }
 
 @media only screen and (max-width: 200px) {
@@ -569,7 +768,8 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		height: calc(100% - 82px);
 	}
 
@@ -585,7 +785,8 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		margin: 31.5vw 0;
 	}
 }
@@ -598,9 +799,7 @@ body {
 }
 
 @media only screen and (max-height: 350px) {
-	.ui-item {
-		width: 20vh;
-	}
+	.ui-item {width: 20vh;}
 }
 
 @media only screen and (max-height: 260px) {
@@ -619,11 +818,14 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		height: calc(100% - 52vh);
     margin: 26vh 0;
     border: none;
 	}
+
+	.train-window .ui-wrap {padding: 0;}
 }
 
 @media only screen and (max-height: 200px) {
@@ -633,7 +835,8 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		height: calc(100% - 58vh);
     margin: 29vh 0;
 	}
@@ -650,7 +853,8 @@ body {
 
 	.info-cont,
 	.poop-cont,
-	.poop-clean {
+	.poop-clean,
+	.train-window .ui-wrap {
 		height: calc(100% - 64vh);
     margin: 32vh 0;
 	}
