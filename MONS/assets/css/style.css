@@ -7,10 +7,6 @@
 
 body {
 	background-color: #000;
-	background-image: 
-		linear-gradient(to left, cyan 1px, transparent 1px),
-		linear-gradient(to top, cyan 1px, transparent 1px);
-	background-size: 30px 30px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
