@@ -45,6 +45,7 @@ window.addEventListener('message', (event) => {
       setTimeout(() => {
         attackContainer.classList.add('hidden');
         explosion.classList.remove('hidden');
+        mon.classList.remove('attacking');
       }, 500);
 
       setTimeout(() => {
@@ -52,7 +53,6 @@ window.addEventListener('message', (event) => {
         const currentTrainingNumber = parseInt(localStorage.getItem('trainingNumber')) || 0;
         localStorage.setItem('trainingNumber', (currentTrainingNumber + 1).toString());
         console.log('Training Number:', localStorage.getItem('trainingNumber'));
-        mon.classList.remove('attacking');
         window.location.href = 'mon.html';
       }, 2400);
 
