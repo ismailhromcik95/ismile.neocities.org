@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-    const savedAge = localStorage.getItem('monAge');
+  const savedAge = localStorage.getItem('monAge');
   if (savedAge) {
     updateMonAgeElements(savedAge);
   }
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-    const savedStatus = localStorage.getItem('monStatus');
+  const savedStatus = localStorage.getItem('monStatus');
   if (savedStatus) {
     updateMonStatusElements(savedStatus);
   }
@@ -415,6 +415,10 @@ initializeHunger();
           }
         }
 
+        else if (radios[currentIndex].id === 'UItrain') {
+          window.location.href = 'train.html';
+        }
+
         break;
       }
 
@@ -434,6 +438,7 @@ function exportMonData() {
         clean_time: localStorage.getItem('lastCleanTime'),
         poop_count: localStorage.getItem('poopCount'),
         status: localStorage.getItem('monStatus'),
+        training_number: localStorage.getItem('trainingNumber'),
         save_date: new Date().toISOString()
     };
 
