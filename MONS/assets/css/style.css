@@ -17,6 +17,9 @@ body {
   font-style: normal;
 }
 
+body {cursor: url(../cursors/default.cur), default;}
+.button-wrap button {cursor: url(../cursors/pointer.cur), pointer;}
+
 .flex,
 .frame {
 	display: flex;
@@ -119,7 +122,6 @@ body {
 	height: 50px;
 	min-width: 24px;
 	min-height: 24px;
-	cursor: pointer;
 	border: none;
 	position: relative;
 	background: none;
