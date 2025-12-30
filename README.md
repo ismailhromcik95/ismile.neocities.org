@@ -22,3 +22,6 @@ https://ismailhromcik95.github.io/ismile.neocities.org/facts/
 
 7. MONS Virtual Pet Game:
 https://ismailhromcik95.github.io/ismile.neocities.org/MONS/
+
+8. The #Media Channel for my Site's Discord Recreation:
+https://ismailhromcik95.github.io/ismile.neocities.org/ismile-discord/media-channel/index.html
