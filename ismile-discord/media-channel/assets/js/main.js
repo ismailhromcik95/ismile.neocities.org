@@ -30,9 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mediaContent = document.querySelector(".content");
 
   requestAnimationFrame(() => {
-    mediaContent.forEach(box => {
-      box.scrollTop = box.scrollHeight - box.clientHeight;
-    });
+    if (!mediaContent) return;
+    mediaContent.scrollTop = mediaContent.scrollHeight - mediaContent.clientHeight;
   });
 
 const typingIndicator = document.getElementById("is_typing");
