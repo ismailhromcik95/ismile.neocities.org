@@ -6,7 +6,6 @@
 }
 
 body {
-	background-color: #000;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -279,3 +278,4 @@ body {cursor: url(../cursors/default.cur), default;}
 		border-radius: 30px;
 	}
 }
+
