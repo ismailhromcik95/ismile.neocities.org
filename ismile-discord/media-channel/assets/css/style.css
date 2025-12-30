@@ -65,9 +65,68 @@ body {
 	margin-bottom: 20px;
 }
 
+.displayPhoto {
+	background-image: url('../images/icons/discord.png');
+	background-size: 100% 100%;
+	border-radius: 50%;
+	cursor: pointer;
+	width: 48px;
+	height: 48px;
+}
+
+.allMessages {
+	margin-left: 15px;
+}
+
+.senderInfo .name {
+	font-weight: bold;
+}
+
+.senderInfo .name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.senderInfo .name.iSmile {
+	color: #1ebc9c;
+}
+
+.senderInfo .timestamp {
+	color: #a3a6a990;
+	font-size: 12px;
+	margin-left: 5px;
+	font-family: 'Open Sans', sans-serif;
+	cursor: default;
+}
+
+.msgBody {
+	margin-top: 7px;
+	color: #dcddde;
+	overflow-wrap: break-word;
+}
+
 .msgBody img {
+	border-radius: 10px;
+	cursor: pointer;
 	width: 350px;
 	max-width: 100%;
+}
+
+.msgBody p {
+	margin: 10px 0;
+}
+
+.msgBody a {
+	color: #7bb0f5;
+	text-decoration: none;
+}
+
+.msgBody a:hover {
+	text-decoration: underline;
+}
+
+.no-img .msgBody {
+	margin-top: 0;
 }
 
 .input-active {
@@ -142,6 +201,43 @@ body {
 .image-upload:hover {
 	filter: brightness(1.25);
 	cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .hidden {
