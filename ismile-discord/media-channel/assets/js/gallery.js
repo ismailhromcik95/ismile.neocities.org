@@ -16,7 +16,7 @@ window.addEventListener("message", (event) => {
   console.log("Received identity from parent page:", myName, myUID);
 });
 
-const mediaContent = document.querySelector(".content");
+const chatBox = document.querySelector(".chat-box");
 const inputField = document.querySelector(".input-active");
 const uploadBtn = document.querySelector(".image-upload");
 
@@ -40,43 +40,49 @@ fileInput.addEventListener("change", async () => {
   formData.append("image", file);
   if (description) formData.append("description", description);
 
-  const res = await fetch("https://api.imgur.com/3/image", {
-    method: "POST",
-    headers: {
-      Authorization: `Client-ID ${clientId}`
-    },
-    body: formData
-  });
+  try {
+    const res = await fetch("https://api.imgur.com/3/image", {
+      method: "POST",
+      headers: {
+        Authorization: `Client-ID ${clientId}`
+      },
+      body: formData
+    });
 
-  const data = await res.json();
-  if (!data.success) {
-    alert("Upload failed.");
-    return;
-  }
-
-  const imageUrl = data.data.link;
-  const timestamp = new Date().toISOString();
-
-  await supabaseClient.from("media").insert([
-    {
-      uid: myUID,
-      username: myName,
-      url: imageUrl,
-      description: description,
-      created_at: timestamp
+    const data = await res.json();
+    if (!data.success) {
+      alert("Upload failed.");
+      return;
     }
-  ]);
 
-  inputField.value = "";
-  fileInput.value = "";
+    const imageUrl = data.data.link;
+    const timestamp = new Date().toISOString();
 
-  renderMessage({
-    uid: myUID,
-    username: myName,
-    url: imageUrl,
-    description: description,
-    created_at: timestamp
-  });
+    const { error } = await supabaseClient.from("media").insert([
+      {
+        uid: myUID,
+        username: myName,
+        url: imageUrl,
+        description: description,
+        created_at: timestamp
+      }
+    ]);
+
+    if (error) {
+      console.error("Supabase insert error:", error);
+      alert("Failed to save to database.");
+      return;
+    }
+
+    inputField.value = "";
+    fileInput.value = "";
+
+    await refreshGallery();
+
+  } catch (err) {
+    console.error("Upload error:", err);
+    alert("Upload failed due to network error.");
+  }
 });
 
 inputField.addEventListener("keydown", (event) => {
@@ -87,7 +93,6 @@ inputField.addEventListener("keydown", (event) => {
     }
   }
 });
-
 
 function renderMessage(msg) {
   const wrapper = document.createElement("div");
@@ -135,18 +140,32 @@ function renderMessage(msg) {
   wrapper.appendChild(displayPhoto);
   wrapper.appendChild(allMessages);
 
-  mediaContent.appendChild(wrapper);
+  chatBox.appendChild(wrapper);
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const { data: messages } = await supabaseClient
-    .from("media")
-    .select("*")
-    .order("created_at", { ascending: true });
+async function refreshGallery() {
+  try {
+    const { data: messages, error } = await supabaseClient
+      .from("media")
+      .select("*")
+      .order("created_at", { ascending: true });
 
-  messages.forEach(renderMessage);
+    if (error) {
+      console.error("Error fetching messages:", error);
+      return;
+    }
 
-  requestAnimationFrame(() => {
-    mediaContent.scrollTop = mediaContent.scrollHeight - mediaContent.clientHeight;
-  });
-});
+    chatBox.innerHTML = "";
+    if (messages) {
+      messages.forEach(renderMessage);
+    }
+
+    requestAnimationFrame(() => {
+      chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
+    });
+  } catch (err) {
+    console.error("Refresh error:", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", refreshGallery);
