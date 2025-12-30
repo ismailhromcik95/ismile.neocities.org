@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const scrollBtn = document.getElementById("scrollToBottom");
+  const mediaContent = document.querySelector(".content");
 
   requestAnimationFrame(() => {
-    chatBox.forEach(box => {
+    mediaContent.forEach(box => {
       box.scrollTop = box.scrollHeight - box.clientHeight;
     });
   });
