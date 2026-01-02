@@ -126,10 +126,14 @@ function renderMessage(msg) {
 
   if (msg.description && msg.description.trim() !== "") {
     const p = document.createElement("p");
-    p.textContent = msg.description;
-    p.style.whiteSpace = "pre-wrap";
+    p.innerHTML = msg.description.replace(/\\n/g, "<br>");
     msgBody.appendChild(p);
   }
+
+  const p = document.createElement("p");
+p.innerHTML = msg.description.replace(/\\n/g, "<br>");
+msgBody.appendChild(p);
+
 
   const imageEl = document.createElement("img");
   imageEl.src = msg.url;
