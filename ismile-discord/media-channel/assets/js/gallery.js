@@ -127,6 +127,7 @@ function renderMessage(msg) {
   if (msg.description && msg.description.trim() !== "") {
     const p = document.createElement("p");
     p.textContent = msg.description;
+    p.style.whiteSpace = "pre-wrap";
     msgBody.appendChild(p);
   }
 
