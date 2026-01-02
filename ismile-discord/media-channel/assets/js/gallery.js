@@ -130,11 +130,6 @@ function renderMessage(msg) {
     msgBody.appendChild(p);
   }
 
-  const p = document.createElement("p");
-p.innerHTML = msg.description.replace(/\\n/g, "<br>");
-msgBody.appendChild(p);
-
-
   const imageEl = document.createElement("img");
   imageEl.src = msg.url;
   msgBody.appendChild(imageEl);
