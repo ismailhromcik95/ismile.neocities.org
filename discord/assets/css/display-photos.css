@@ -86,7 +86,11 @@
 #onlineList .list-item[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"],
 .user-list.spam p[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"],
 .msgWrapper[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo .user,
-.msgWrapper[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo .username {
+.msgWrapper[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo .username,
+#onlineList .list-item[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"],
+.user-list.spam p[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"],
+.msgWrapper[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"] .senderInfo .user,
+.msgWrapper[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"] .senderInfo .username {
 	font-weight: bold;
 	color: #fb74c6;
 }
@@ -95,7 +99,10 @@
 .msgWrapper[data-uid="61OMFBUSzDVnLOdwmV85mYc5lA12"] .displayPhoto,
 #onlineList .list-item[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"]::before,
 .user-list.spam p[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"]::before,
-.msgWrapper[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .displayPhoto {
+.msgWrapper[data-uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .displayPhoto,
+#onlineList .list-item[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"]::before,
+.user-list.spam p[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"]::before,
+.msgWrapper[data-uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"] .displayPhoto {
   background-image: url(https://kuroi.neocities.org/img/pics/avatar.jpg);
 	filter: hue-rotate(0deg) !important;
 }
@@ -111,7 +118,7 @@
 #onlineList .list-item[data-uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"]::before,
 .user-list.spam p[data-uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"]::before,
 .msgWrapper[data-uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"] .displayPhoto {
-  background-image: url(https://onio.cafe/petgame.gif);
+  background-image: url(https://onio.club/petgame.gif);
 	filter: hue-rotate(0deg) !important;
 }
 
@@ -141,7 +148,7 @@
 #onlineList .list-item[data-uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"]::before,
 .user-list.spam p[data-uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"]::before,
 .msgWrapper[data-uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"] .displayPhoto {
-  background-image: url(https://cdn.discordapp.com/avatars/882976387982569483/316e7797d3bb1a98d95ab8f156c2c213.png);
+  background-image: url(https://luneth-landing.neocities.org/misc_img/me4.png);
 	filter: hue-rotate(0deg) !important;
 }
 
@@ -159,18 +166,52 @@
   background-image: url(https://phelah.nekoweb.org/MadiPfp.png);
 	filter: hue-rotate(0deg) !important;
 }
+#onlineList .list-item[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"],
+.user-list.spam p[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"],
+.msgWrapper[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"] .senderInfo .user,
+.msgWrapper[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"] .senderInfo .username {
+	font-weight: bold;
+	color: #f20000;
+}
+#onlineList .list-item[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"]::before,
+.user-list.spam p[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"]::before,
+.msgWrapper[data-uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"] .displayPhoto {
+  background-image: url(https://phelah.nekoweb.org/MadiPfp.png);
+	filter: hue-rotate(0deg) !important;
+}
 
-/*Arda*/
+/*Andrew*/
 #onlineList .list-item[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"]::before,
 .user-list.spam p[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"]::before,
 .msgWrapper[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"] .displayPhoto {
   background-image: url(https://andrew-grider.com/media/me-min.png);
 	filter: hue-rotate(0deg) !important;
 }
+#onlineList .list-item[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"],
+.user-list.spam p[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"],
+.msgWrapper[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"] .senderInfo .user,
+.msgWrapper[data-uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"] .senderInfo .username {
+	font-weight: bold;
+	color: #f57a33;
+}
+
+/*Arda*/
 #onlineList .list-item[data-uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"]::before,
 .user-list.spam p[data-uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"]::before,
 .msgWrapper[data-uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"] .displayPhoto {
-  background-image: url(https://greenapl.neocities.org/neocities-trakya/%C3%B6rdek.jpg);
+  background-image: url(https://i.imgur.com/HfUFrWK.jpeg);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="saS02MbVmweFpWYp0AVOV9HKvMu1"]::before,
+.user-list.spam p[data-uid="saS02MbVmweFpWYp0AVOV9HKvMu1"]::before,
+.msgWrapper[data-uid="saS02MbVmweFpWYp0AVOV9HKvMu1"] .displayPhoto {
+  background-image: url(https://i.imgur.com/HfUFrWK.jpeg);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="KeNHz6YjE0PdADi8ZaR8DnAgs1w2"]::before,
+.user-list.spam p[data-uid="KeNHz6YjE0PdADi8ZaR8DnAgs1w2"]::before,
+.msgWrapper[data-uid="KeNHz6YjE0PdADi8ZaR8DnAgs1w2"] .displayPhoto {
+  background-image: url(https://i.imgur.com/HfUFrWK.jpeg);
 	filter: hue-rotate(0deg) !important;
 }
 
@@ -179,5 +220,103 @@
 .user-list.spam p[data-uid="woz"]::before,
 .msgWrapper[data-uid="woz"] .displayPhoto {
   background-image: url(https://i.imgur.com/90V5wdk.png);
+	filter: hue-rotate(0deg) !important;
+}
+
+/*hello1234*/
+#onlineList .list-item[data-uid="jDJ24cvPGkW1uO3JJFTTUFCLzvp2"]::before,
+.user-list.spam p[data-uid="jDJ24cvPGkW1uO3JJFTTUFCLzvp2"]::before,
+.msgWrapper[data-uid="jDJ24cvPGkW1uO3JJFTTUFCLzvp2"] .displayPhoto {
+  background-image: url(https://media.tenor.com/3IACtMvxwdsAAAAj/pikachu-happy.gif);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="THpPA6ZMT6eidpvzxv2kCH2iIkq2"]::before,
+.user-list.spam p[data-uid="THpPA6ZMT6eidpvzxv2kCH2iIkq2"]::before,
+.msgWrapper[data-uid="THpPA6ZMT6eidpvzxv2kCH2iIkq2"] .displayPhoto {
+  background-image: url(https://media.tenor.com/3IACtMvxwdsAAAAj/pikachu-happy.gif);
+	filter: hue-rotate(0deg) !important;
+}
+
+/*Hat*/
+#onlineList .list-item[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"],
+.user-list.spam p[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"],
+.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo .user,
+.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo .username {
+	font-weight: bold;
+	color: #b03b3b;
+}
+#onlineList .list-item[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"]::before,
+.user-list.spam p[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"]::before,
+.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .displayPhoto {
+  background-image: url(https://i.imgur.com/t1QRjK0.png);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
+.user-list.spam p[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .user,
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .username {
+	font-weight: bold;
+	color: #b03b3b;
+}
+#onlineList .list-item[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"]::before,
+.user-list.spam p[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"]::before,
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .displayPhoto {
+  background-image: url(https://i.imgur.com/t1QRjK0.png);
+	filter: hue-rotate(0deg) !important;
+}
+
+/*bluejaybard*/
+#onlineList .list-item[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"],
+.user-list.spam p[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"],
+.msgWrapper[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"] .senderInfo .user,
+.msgWrapper[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"] .senderInfo .username {
+	font-weight: bold;
+	color: #4766ff;
+}
+#onlineList .list-item[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"]::before,
+.user-list.spam p[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"]::before,
+.msgWrapper[data-uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"] .displayPhoto {
+  background-image: url(https://bluejaybard.neocities.org/images/bluejay.PNG);
+	filter: hue-rotate(0deg) !important;
+}
+
+/*Boredom_not_found*/
+#onlineList .list-item[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"],
+.user-list.spam p[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"],
+.msgWrapper[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"] .senderInfo .user,
+.msgWrapper[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"] .senderInfo .username {
+	font-weight: bold;
+	color: #e271eb;
+}
+#onlineList .list-item[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"]::before,
+.user-list.spam p[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"]::before,
+.msgWrapper[data-uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"] .displayPhoto {
+  background-image: url(https://boredom-not-found.neocities.org/pfp.png);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"],
+.user-list.spam p[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"],
+.msgWrapper[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"] .senderInfo .user,
+.msgWrapper[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"] .senderInfo .username {
+	font-weight: bold;
+	color: #e271eb;
+}
+#onlineList .list-item[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"]::before,
+.user-list.spam p[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"]::before,
+.msgWrapper[data-uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"] .displayPhoto {
+  background-image: url(https://boredom-not-found.neocities.org/pfp.png);
+	filter: hue-rotate(0deg) !important;
+}
+#onlineList .list-item[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"],
+.user-list.spam p[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"],
+.msgWrapper[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"] .senderInfo .user,
+.msgWrapper[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"] .senderInfo .username {
+	font-weight: bold;
+	color: #e271eb;
+}
+#onlineList .list-item[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"]::before,
+.user-list.spam p[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"]::before,
+.msgWrapper[data-uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"] .displayPhoto {
+  background-image: url(https://boredom-not-found.neocities.org/pfp.png);
 	filter: hue-rotate(0deg) !important;
 }
