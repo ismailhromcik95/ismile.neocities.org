@@ -223,20 +223,21 @@ body {
 
 /*iSmile*/
 .msgWrapper:has(.allMessages[uid="Zs5Vz4qWGoO5QT1mwM3UIKqPeef1"])::before {
-  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/icons/ismile.png);
+  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/ismile.png);
   filter: hue-rotate(0deg);
 }
 
 /*Kuroi*/
 .msgWrapper:has(.allMessages[uid="61OMFBUSzDVnLOdwmV85mYc5lA12"])::before,
-.msgWrapper:has(.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"])::before {
+.msgWrapper:has(.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"])::before,
+.msgWrapper:has(.allMessages[uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"])::before {
   background-image: url(https://kuroi.neocities.org/img/pics/avatar.jpg);
   filter: hue-rotate(0deg);
 }
 
 /*Onio*/
 .msgWrapper:has(.allMessages[uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"])::before {
-  background-image: url(https://onio.cafe/petgame.gif);
+  background-image: url(https://onio.club/petgame.gif);
   filter: hue-rotate(0deg);
 }
 
@@ -254,19 +255,56 @@ body {
 
 /*Luneth*/
 .msgWrapper:has(.allMessages[uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"])::before {
-  background-image: url(https://cdn.discordapp.com/avatars/882976387982569483/316e7797d3bb1a98d95ab8f156c2c213.png);
+  background-image: url(https://luneth-landing.neocities.org/misc_img/me4.png);
   filter: hue-rotate(0deg);
 }
 
 /*Arda*/
-.msgWrapper:has(.allMessages[uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"])::before {
-  background-image: url(https://greenapl.neocities.org/neocities-trakya/%C3%B6rdek.jpg);
+.msgWrapper:has(.allMessages[uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"])::before,
+.msgWrapper:has(.allMessages[uid="saS02MbVmweFpWYp0AVOV9HKvMu1"])::before,
+.msgWrapper:has(.allMessages[uid="KeNHz6YjE0PdADi8ZaR8DnAgs1w2"])::before {
+  background-image: url(https://i.imgur.com/HfUFrWK.jpeg);
   filter: hue-rotate(0deg);
 }
 
 /*Phelah / Mysteriz*/
 .msgWrapper:has(.allMessages[uid="XmAuQoRUmAPoPqsI3ArxvKNsOnE3"])::before {
   background-image: url(https://phelah.nekoweb.org/MadiPfp.png);
+  filter: hue-rotate(0deg);
+}
+.msgWrapper:has(.allMessages[uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"])::before {
+  background-image: url(https://phelah.nekoweb.org/MadiPfp.png);
+  filter: hue-rotate(0deg);
+}
+
+/*hello123456*/
+.msgWrapper:has(.allMessages[uid="jDJ24cvPGkW1uO3JJFTTUFCLzvp2"])::before {
+  background-image: url(https://media.tenor.com/3IACtMvxwdsAAAAj/pikachu-happy.gif);
+  filter: hue-rotate(0deg);
+}
+.msgWrapper:has(.allMessages[uid="THpPA6ZMT6eidpvzxv2kCH2iIkq2"])::before {
+  background-image: url(https://media.tenor.com/3IACtMvxwdsAAAAj/pikachu-happy.gif);
+  filter: hue-rotate(0deg);
+}
+
+/*Hat*/
+.msgWrapper:has(.allMessages[uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"])::before,
+.msgWrapper:has(.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"])::before {
+  background-image: url(https://i.imgur.com/t1QRjK0.png);
+  filter: hue-rotate(0deg);
+}
+
+/*bluejaybard*/
+.msgWrapper:has(.allMessages[uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"])::before {
+  background-image: url(https://bluejaybard.neocities.org/images/bluejay.PNG);
+  filter: hue-rotate(0deg);
+}
+
+/*Boredom_not_found*/
+.msgWrapper:has(.allMessages[uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"])::before,
+.msgWrapper:has(.allMessages[uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"])::before,
+.msgWrapper:has(.allMessages[uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"])::before {
+  background-image: url(https://boredom-not-found.neocities.org/pfp.png);
   filter: hue-rotate(0deg);
 }
 
@@ -533,7 +571,8 @@ blockquote::before {
 
 /*Kuroi*/
 .allMessages[uid="61OMFBUSzDVnLOdwmV85mYc5lA12"] .senderInfo,
-.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo {
+.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo,
+.allMessages[uid="Cvl1AvQxkrQ0X046zXLMAv6PAlv2"] .senderInfo {
   color: #fb74c6;  
 }
 
@@ -547,14 +586,38 @@ blockquote::before {
   color: #fcf100;  
 }
 
+/*Andrew*/
+.allMessages[uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"] .senderInfo { 
+  color: #f57a33;  
+}
+
 /*Luneth*/
 .allMessages[uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"] .senderInfo { 
   color: #6e8328;  
 }
 
 /*Phelah / Mysteriz*/
-.allMessages[uid="XmAuQoRUmAPoPqsI3ArxvKNsOnE3"] .senderInfo { 
+.allMessages[uid="XmAuQoRUmAPoPqsI3ArxvKNsOnE3"] .senderInfo,
+.allMessages[uid="vVZ56GmUTRdsNeHVlE34wyTYGWw1"] .senderInfo { 
   color: #f20000;  
+}
+
+/*Hat*/
+.allMessages[uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo,
+.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo { 
+  color: #b03b3b;  
+}
+
+/*bluejaybard*/
+.allMessages[uid="b12Ed9hFXfd8pysJpgaFnP9iOE13"] .senderInfo { 
+  color: #4766ff;  
+}
+
+/*Boredom_not_found*/
+.allMessages[uid="hHxuaNPljyOXJPlHAufTN2pyKDL2"] .senderInfo,
+.allMessages[uid="GaALIbMRKlfd3e18OfzKVhxX5lC3"] .senderInfo,
+.allMessages[uid="FkoCKlDamaXz5NwRbK2iaiONCGk1"] .senderInfo { 
+  color: #e271eb;  
 }
 
 .badge {
