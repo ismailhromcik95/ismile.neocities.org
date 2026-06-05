@@ -150,7 +150,7 @@ body {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/discord.png);
+  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/icons/discord.png);
   background-size: 100% 100%;
   cursor: pointer;
 }
@@ -223,7 +223,7 @@ body {
 
 /*iSmile*/
 .msgWrapper:has(.allMessages[uid="Zs5Vz4qWGoO5QT1mwM3UIKqPeef1"])::before {
-  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/ismile.png);
+  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/icons/ismile.png);
   filter: hue-rotate(0deg);
 }
 
@@ -422,11 +422,11 @@ body {
 }
 
 #emojiTrayToggle {
-  background-image: url(https://ismile.neocities.org/discord/assets/images/emoji.png);  
+  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/emoji.png);  
 }
 
 #emojiTrayToggle:hover {
-  background-image: url(https://ismile.neocities.org/discord/assets/images/emoji-color.png);
+  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/emoji-color.png);
 }
 
 :where(#emojiTrayToggle) {
@@ -437,7 +437,7 @@ body {
 }
 
 #settings {
-  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/settings.png);
+  background-image: url(https://ismailhromcik95.github.io/ismile.neocities.org/discord/assets/images/icons/settings.png);
   right: 26px;
   top: unset;
   bottom: 23px;
