@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;700&family=Open+Sans&display=swap');
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  color: #ffffe6;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+#settingsWindow {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 100%;
+}
+
+#settingsWindow,
+#settingsWindow iframe {
+  backdrop-filter: none;
+}
+
+#settingsMenu {
+  background: #36373e;
+  color: #9b9da0;
+  font-size: 14.5px;
+  height: 350px;
+  width: 350px;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 10px;
+  position: relative;
+  padding: 35px;
+}
+
+#settingsMenu h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffe6;
+}
+
+#settingsMenu p,
+#settingsMenu label {
+  margin: 0;
+  line-height: 17px;
+}
+
+#settingsMenu label {
+  margin-left: 10px;  
+}
+
+#name {
+  margin-bottom: 15px;
+}
+
+#logoutBtn {
+  top: 5px;
+  right: 12px;
+  text-decoration: underline;
+  color: #ffffe6;
+}
+
+#logoutBtn:hover,
+#save:hover,
+#dltranscript a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#save {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#dltranscript {
+  margin-top: 15px !important;  
+}
+
+#dltranscript a {
+  color: #7289da;
+}
+
+#footer {
+  padding: 15px 0;
+}
+
+#closeSettingsBtn {
+  width: 66px;
+  height: 15px;
+  position: absolute;
+  bottom: unset;
+  top: 455px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5a64ea;
+  color: #fff;
+  border-radius: 3px;
+  padding: 12px 18px;
+}
+
+#closeSettingsBtn:hover {
+  background: rgba(90,100,234,0.8);
+}
+
+#ctxMenu {
+  background-color: #18191a !important;
+  color: #b4b8bf !important;
+}
+
+.ctxMenuOption {
+  background-color: transparent !important;
+  border-radius: 5px;
+  margin: 5px !important;
+  cursor: pointer !important;
+}
+
+.ctxMenuOption:hover {
+  background-color: #4752c5 !important;
+  color: #fff !important;
+}
+
+#top_banner {
+  display: none;
+}
+
+#background {
+  padding: 20px 0;
+  scrollbar-color: #74757e #2b2b31;
+  scrollbar-width: auto;
+}
+
+.msgWrapper {
+  padding: 0 20px;
+  padding-left: 77px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.msgWrapper:hover {
+  background-color: #42464d;
+}
+
+.msgWrapper::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/discord.png);
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.msgWrapper:has(.allMessages[uid^='0'])::before { filter: hue-rotate(214.7deg); }
+.msgWrapper:has(.allMessages[uid^='1'])::before { filter: hue-rotate(58.1deg); }
+.msgWrapper:has(.allMessages[uid^='2'])::before { filter: hue-rotate(331.4deg); }
+.msgWrapper:has(.allMessages[uid^='3'])::before { filter: hue-rotate(121.9deg); }
+.msgWrapper:has(.allMessages[uid^='4'])::before { filter: hue-rotate(278.6deg); }
+.msgWrapper:has(.allMessages[uid^='5'])::before { filter: hue-rotate(34.8deg); }
+.msgWrapper:has(.allMessages[uid^='6'])::before { filter: hue-rotate(185.2deg); }
+.msgWrapper:has(.allMessages[uid^='7'])::before { filter: hue-rotate(92.9deg); }
+.msgWrapper:has(.allMessages[uid^='8'])::before { filter: hue-rotate(309.6deg); }
+.msgWrapper:has(.allMessages[uid^='9'])::before { filter: hue-rotate(151.0deg); }
+
+.msgWrapper:has(.allMessages[uid^='a'])::before { filter: hue-rotate(6.1deg); }
+.msgWrapper:has(.allMessages[uid^='b'])::before { filter: hue-rotate(167.8deg); }
+.msgWrapper:has(.allMessages[uid^='c'])::before { filter: hue-rotate(256.4deg); }
+.msgWrapper:has(.allMessages[uid^='d'])::before { filter: hue-rotate(71.6deg); }
+.msgWrapper:has(.allMessages[uid^='e'])::before { filter: hue-rotate(342.9deg); }
+.msgWrapper:has(.allMessages[uid^='f'])::before { filter: hue-rotate(114.3deg); }
+.msgWrapper:has(.allMessages[uid^='g'])::before { filter: hue-rotate(223.5deg); }
+.msgWrapper:has(.allMessages[uid^='h'])::before { filter: hue-rotate(40.7deg); }
+.msgWrapper:has(.allMessages[uid^='i'])::before { filter: hue-rotate(291.2deg); }
+.msgWrapper:has(.allMessages[uid^='j'])::before { filter: hue-rotate(178.4deg); }
+.msgWrapper:has(.allMessages[uid^='k'])::before { filter: hue-rotate(86.5deg); }
+.msgWrapper:has(.allMessages[uid^='l'])::before { filter: hue-rotate(320.6deg); }
+.msgWrapper:has(.allMessages[uid^='m'])::before { filter: hue-rotate(132.0deg); }
+.msgWrapper:has(.allMessages[uid^='n'])::before { filter: hue-rotate(246.8deg); }
+.msgWrapper:has(.allMessages[uid^='o'])::before { filter: hue-rotate(52.9deg); }
+.msgWrapper:has(.allMessages[uid^='p'])::before { filter: hue-rotate(303.5deg); }
+.msgWrapper:has(.allMessages[uid^='q'])::before { filter: hue-rotate(160.7deg); }
+.msgWrapper:has(.allMessages[uid^='r'])::before { filter: hue-rotate(98.1deg); }
+.msgWrapper:has(.allMessages[uid^='s'])::before { filter: hue-rotate(270.9deg); }
+.msgWrapper:has(.allMessages[uid^='t'])::before { filter: hue-rotate(23.2deg); }
+.msgWrapper:has(.allMessages[uid^='u'])::before { filter: hue-rotate(204.0deg); }
+.msgWrapper:has(.allMessages[uid^='v'])::before { filter: hue-rotate(146.5deg); }
+.msgWrapper:has(.allMessages[uid^='w'])::before { filter: hue-rotate(314.8deg); }
+.msgWrapper:has(.allMessages[uid^='x'])::before { filter: hue-rotate(64.2deg); }
+.msgWrapper:has(.allMessages[uid^='y'])::before { filter: hue-rotate(232.9deg); }
+.msgWrapper:has(.allMessages[uid^='z'])::before { filter: hue-rotate(110.6deg); }
+
+.msgWrapper:has(.allMessages[uid^='A'])::before { filter: hue-rotate(17.4deg); }
+.msgWrapper:has(.allMessages[uid^='B'])::before { filter: hue-rotate(189.6deg); }
+.msgWrapper:has(.allMessages[uid^='C'])::before { filter: hue-rotate(337.1deg); }
+.msgWrapper:has(.allMessages[uid^='D'])::before { filter: hue-rotate(76.8deg); }
+.msgWrapper:has(.allMessages[uid^='E'])::before { filter: hue-rotate(262.0deg); }
+.msgWrapper:has(.allMessages[uid^='F'])::before { filter: hue-rotate(125.5deg); }
+.msgWrapper:has(.allMessages[uid^='G'])::before { filter: hue-rotate(215.9deg); }
+.msgWrapper:has(.allMessages[uid^='H'])::before { filter: hue-rotate(48.3deg); }
+.msgWrapper:has(.allMessages[uid^='I'])::before { filter: hue-rotate(296.7deg); }
+.msgWrapper:has(.allMessages[uid^='J'])::before { filter: hue-rotate(156.2deg); }
+.msgWrapper:has(.allMessages[uid^='K'])::before { filter: hue-rotate(91.5deg); }
+.msgWrapper:has(.allMessages[uid^='L'])::before { filter: hue-rotate(325.8deg); }
+.msgWrapper:has(.allMessages[uid^='M'])::before { filter: hue-rotate(138.9deg); }
+.msgWrapper:has(.allMessages[uid^='N'])::before { filter: hue-rotate(249.4deg); }
+.msgWrapper:has(.allMessages[uid^='O'])::before { filter: hue-rotate(59.6deg); }
+.msgWrapper:has(.allMessages[uid^='P'])::before { filter: hue-rotate(308.2deg); }
+.msgWrapper:has(.allMessages[uid^='Q'])::before { filter: hue-rotate(170.3deg); }
+.msgWrapper:has(.allMessages[uid^='R'])::before { filter: hue-rotate(103.8deg); }
+.msgWrapper:has(.allMessages[uid^='S'])::before { filter: hue-rotate(276.5deg); }
+.msgWrapper:has(.allMessages[uid^='T'])::before { filter: hue-rotate(29.1deg); }
+.msgWrapper:has(.allMessages[uid^='U'])::before { filter: hue-rotate(209.8deg); }
+.msgWrapper:has(.allMessages[uid^='V'])::before { filter: hue-rotate(144.1deg); }
+.msgWrapper:has(.allMessages[uid^='W'])::before { filter: hue-rotate(318.9deg); }
+.msgWrapper:has(.allMessages[uid^='X'])::before { filter: hue-rotate(67.7deg); }
+.msgWrapper:has(.allMessages[uid^='Y'])::before { filter: hue-rotate(238.3deg); }
+.msgWrapper:has(.allMessages[uid^='Z'])::before { filter: hue-rotate(116.2deg); }
+
+
+/*iSmile*/
+.msgWrapper:has(.allMessages[uid="Zs5Vz4qWGoO5QT1mwM3UIKqPeef1"])::before {
+  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/ismile.png);
+  filter: hue-rotate(0deg);
+}
+
+/*Kuroi*/
+.msgWrapper:has(.allMessages[uid="61OMFBUSzDVnLOdwmV85mYc5lA12"])::before,
+.msgWrapper:has(.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"])::before {
+  background-image: url(https://kuroi.neocities.org/img/pics/avatar.jpg);
+  filter: hue-rotate(0deg);
+}
+
+/*Onio*/
+.msgWrapper:has(.allMessages[uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"])::before {
+  background-image: url(https://onio.cafe/petgame.gif);
+  filter: hue-rotate(0deg);
+}
+
+/*Kirbydogs*/
+.msgWrapper:has(.allMessages[uid="BDkTfWS8WghpbFmN9Rxh3per5oq1"])::before {
+  background-image: url(https://kirbydogs.neocities.org/location-img/Standing%20K.png);
+  filter: hue-rotate(0deg);
+}
+
+/*Andrew*/
+.msgWrapper:has(.allMessages[uid="kaW7woNk6lXjj2e8LxWDywo4LAG2"])::before {
+  background-image: url(https://andrew-grider.com/media/me-min.png);
+  filter: hue-rotate(0deg);
+}
+
+/*Luneth*/
+.msgWrapper:has(.allMessages[uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"])::before {
+  background-image: url(https://cdn.discordapp.com/avatars/882976387982569483/316e7797d3bb1a98d95ab8f156c2c213.png);
+  filter: hue-rotate(0deg);
+}
+
+/*Arda*/
+.msgWrapper:has(.allMessages[uid="tGPbvnhns7bMvDvB0ry5PGrLGu53"])::before {
+  background-image: url(https://greenapl.neocities.org/neocities-trakya/%C3%B6rdek.jpg);
+  filter: hue-rotate(0deg);
+}
+
+/*Phelah / Mysteriz*/
+.msgWrapper:has(.allMessages[uid="XmAuQoRUmAPoPqsI3ArxvKNsOnE3"])::before {
+  background-image: url(https://phelah.nekoweb.org/MadiPfp.png);
+  filter: hue-rotate(0deg);
+}
+
+.allMessages {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  cursor: default;
+  user-select: text !important;
+}
+
+.allMessages .senderInfo {
+  display: inline-block;
+  order: 1;
+  cursor: pointer;
+}
+
+.allMessages::after {
+  content: attr(time);
+  color: #a3a6a990;
+  font-size: 12px;
+  margin-left: 9px;
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  order: 2;
+  cursor: default;
+  user-select: text !important;
+}
+
+.allMessages .msgBody {
+  display: block;
+  flex-basis: 100%;
+  order: 3;
+  color: #dcddde;
+}
+
+.msgBody p {
+  cursor: text;  
+}
+
+.msgBody img {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.msgBody img.emoji {
+  border-radius: 0;
+}
+
+#timestamp {
+  display: none;
+}
+
+#textInput {  
+  background: #40444b;
+  color: #ffffe6;
+  padding: 0;
+  margin: -11px 0 0 15px;
+  border-radius: 7px;
+  font-size: 16px;
+  height: 44px;
+  width: calc(100% - 30px);
+  display: flex;
+  align-items: center;
+}
+
+#emojiTray {
+  background-color: #2f3135;
+  width: 460px;
+  height: 460px;
+  left: unset;
+  right: 20px;
+  bottom: 50px;
+  border: none;
+  border-radius: 10px;
+  box-shadow:
+    2px 2px 10px rgba(0,0,0,0.05),
+    -2px -2px 10px rgba(0,0,0,0.05);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+#emojiTray h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 3px !important;
+}
+
+.emojiInGrid {
+  width: 35px;
+  height: 35px;
+}
+
+.emojiInGrid[title*="mon_"],
+.emojiInGrid[title*="wink_"],
+.emojiInGrid[title*="penguin"],
+.emojiInGrid[title*="putnam"],
+.emojiInGrid[title*="robot"],
+.emojiInGrid[title*="shark"] {
+  display: none;
+}
+
+
+/*
+.emojiInGrid[title*="ios_100"],
+.emojiInGrid[title*="ios_zipit"],
+.emojiInGrid[title*="ms_wink"],
+.emojiInGrid[title*="msn_zipit"],
+.emojiInGrid[title*="tw_zipit"] {
+  margin-right: 100%;
+  margin-bottom: 20px;
+}
+*/
+
+#is_typing {
+  background-color: transparent;
+  bottom: 38px;
+  left: 16px;
+  width: fit-content;
+  height: fit-content;
+}
+
+#is_typing::after {
+  content: 'user is typing...';
+  display: inline-block;
+  margin-left: 4px;
+}
+
+#is_typing span {
+  background-color: #d1d3d7;
+  width: 7px;
+  height: 7px;
+}
+
+#input {
+  background: transparent;
+  border-radius: 0;
+  font-family: 'Catamaran', sans-serif;
+  width: calc(100% - 130px);
+  height: calc(100% - 10px);
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+#input:empty::before {
+  content: 'Message #general';
+  color: #73757b;
+  white-space: nowrap;
+}
+
+#emojiTrayToggle {
+  background-image: url(https://ismile.neocities.org/discord/assets/images/emoji.png);  
+}
+
+#emojiTrayToggle:hover {
+  background-image: url(https://ismile.neocities.org/discord/assets/images/emoji-color.png);
+}
+
+:where(#emojiTrayToggle) {
+  right: 44px;
+  top: 11px;
+  width: 22px;
+  height: 22px;
+}
+
+#settings {
+  background-image: url(https://ismile.neocities.org/discord/assets/images/icons/settings.png);
+  right: 26px;
+  top: unset;
+  bottom: 23px;
+  height: 22px;
+  width: 22px;
+}
+
+#settings:hover {
+  filter: brightness(1.25);
+}
+
+#loginBanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#scrollToBottom {
+  background: #4c525a !important;
+  color: transparent !important;
+  width: calc(100% - 30px);
+  height: 24px;
+  border-radius: 5px 5px 0 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+#scrollToBottom::before,
+#scrollToBottom::after {
+  position: absolute;
+  top: 0;
+  color: #f0f1f1;
+  font-size: 14px;
+  height: 100%;
+  font-weight: bold;
+}
+
+#scrollToBottom::before {
+  content: "You're viewing older messages";
+  left: 15px;
+}
+
+#scrollToBottom::after {
+  content: "Jump To Present ⌵";
+  right: 15px;  
+}
+
+
+#replyBanner {
+  display: flex;
+  justify-content: space-between;
+  background: #4c525a;
+  width: calc(100% - 60px);
+  border-radius: 5px 5px 0 0;
+  font-size: 14px;
+  padding: 0 15px;
+  bottom: 42px;
+  height: 24px;
+}
+
+/*
+#replyBanner > span:last-child {
+
+}
+*/
+
+blockquote {
+  all: unset;
+  color: #c4c5c9;
+  font-weight: 200;
+  position: relative;
+  padding-left: 15px;
+  white-space: normal;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 2px;
+  background: #5e5f66;
+}
+
+/*iSmile*/
+.senderInfo:has(.mod, .owner, .beta),
+.allMessages[uid="Zs5Vz4qWGoO5QT1mwM3UIKqPeef1"] .senderInfo {
+  color: #1ebc9c;  
+}
+
+/*Kuroi*/
+.allMessages[uid="61OMFBUSzDVnLOdwmV85mYc5lA12"] .senderInfo,
+.allMessages[uid="M7c6mHf6ACSghI9fq8UKtp4SYWT2"] .senderInfo {
+  color: #fb74c6;  
+}
+
+/*Onio*/
+.allMessages[uid="XubBhFx8VtY4DpwmqvOCGorOSpD3"] .senderInfo { 
+  color: #f8b24d;  
+}
+
+/*Kirbydogs*/
+.allMessages[uid="BDkTfWS8WghpbFmN9Rxh3per5oq1"] .senderInfo { 
+  color: #fcf100;  
+}
+
+/*Luneth*/
+.allMessages[uid="AaKj6fq2t0QJ1pA6VlpvZx5AAGO2"] .senderInfo { 
+  color: #6e8328;  
+}
+
+/*Phelah / Mysteriz*/
+.allMessages[uid="XmAuQoRUmAPoPqsI3ArxvKNsOnE3"] .senderInfo { 
+  color: #f20000;  
+}
+
+.badge {
+  display: none;
+}
+
+/*responsive width*/
+
+@media only screen and (max-width: 540px) {
+  #emojiTray {
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media only screen and (max-width: 385px) {
+  #scrollToBottom::after {
+    content: "⌵";  
+  }
+}
+
+@media only screen and (max-width: 263px) {
+  #scrollToBottom::before {
+    content: "Jump To Present";
+  }
+}
+
+@media only screen and (max-width: 175px) {
+  #scrollToBottom::before {
+    display: none;
+  } 
+  
+  #scrollToBottom::after {
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+}
+
+/*responsive height*/
+
+@media only screen and (max-height: 600px) {
+  #settingsMenu {
+    margin-top: 65px;
+  }
+  
+  #closeSettingsBtn {
+    top: 417px;
+  }
+}
+
+@media only screen and (max-height: 550px) {
+  #settingsMenu {
+    margin-top: 40px;
+  }
+  
+  #closeSettingsBtn {
+    top: 393px;
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  #settingsMenu {
+    margin-top: 15px;
+  }
+  
+  #closeSettingsBtn {
+    top: 369px;
+  }
+}
+
+@media only screen and (max-height: 450px) {
+  #settingsMenu {
+    margin-top: 5px;
+    height: calc(100% - 80px);
+  }
+  
+  #closeSettingsBtn {
+    top: unset;
+    bottom: 15px;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  #closeSettingsBtn {
+    left: unset;
+    right: 15px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+  }
+}
+
+/*responsive width AND height*/
+
+@media only screen and (max-width: 440px) and (max-height: 350px) {
+  #closeSettingsBtn {
+    right: -18px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    background: #5a64ea;
+  }  
+}
