@@ -2,7 +2,7 @@
 
 body {
 	background: #393b41;
-	height: calc(100vh - 46px);
+	height: 100vh;
 	font-family: 'Catamaran', sans-serif;
 	color: #ffffe6;
 	scrollbar-color: #74757e #2b2b31 !important;
@@ -32,7 +32,6 @@ i, .italic {
 }
 
 .content {
-	margin-top: 46px;
 	display: flex;
 	height: 100%;
 }
