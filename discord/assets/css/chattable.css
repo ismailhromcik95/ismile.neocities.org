@@ -289,7 +289,8 @@ body {
 
 /*Hat*/
 .msgWrapper:has(.allMessages[uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"])::before,
-.msgWrapper:has(.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"])::before {
+.msgWrapper:has(.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"])::before.
+.msgWrapper:has(.allMessages[uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"])::before{
   background-image: url(https://i.imgur.com/t1QRjK0.png);
   filter: hue-rotate(0deg);
 }
@@ -604,7 +605,8 @@ blockquote::before {
 
 /*Hat*/
 .allMessages[uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo,
-.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo { 
+.allMessages[uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo,
+.allMessages[uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"] .senderInfo{ 
   color: #b03b3b;  
 }
 
