@@ -241,26 +241,27 @@
 #onlineList .list-item[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"],
 .user-list.spam p[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"],
 .msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo .user,
-.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo .username {
+.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .senderInfo .username,
+#onlineList .list-item[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
+.user-list.spam p[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .user,
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .username,
+#onlineList .list-item[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"],
+.user-list.spam p[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"],
+.msgWrapper[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"] .senderInfo .user,
+.msgWrapper[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"] .senderInfo .username {
 	font-weight: bold;
 	color: #b03b3b;
 }
 #onlineList .list-item[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"]::before,
 .user-list.spam p[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"]::before,
-.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .displayPhoto {
-  background-image: url(https://i.imgur.com/t1QRjK0.png);
-	filter: hue-rotate(0deg) !important;
-}
-#onlineList .list-item[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
-.user-list.spam p[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"],
-.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .user,
-.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .senderInfo .username {
-	font-weight: bold;
-	color: #b03b3b;
-}
+.msgWrapper[data-uid="5Dv7unDDa2aQEthZnbIUJO6lZqY2"] .displayPhoto,
 #onlineList .list-item[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"]::before,
 .user-list.spam p[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"]::before,
-.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .displayPhoto {
+.msgWrapper[data-uid="5B2dYrAQkWRFNjTnhsLZuTD40Wr1"] .displayPhoto,
+#onlineList .list-item[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"]::before,
+.user-list.spam p[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"]::before,
+.msgWrapper[data-uid="XWddf6q3uDTj2a9eGwydOmlHA2v2"] .displayPhoto {
   background-image: url(https://i.imgur.com/t1QRjK0.png);
 	filter: hue-rotate(0deg) !important;
 }
